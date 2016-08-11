@@ -55,16 +55,6 @@ V.equipment = {
 	}
 }
 
-V.farmer = {
-	['enabled'] = true,
-	['farmbars'] = {
-		['enable'] = true,
-		['onlyactive'] = true,
-		['droptools'] = true,
-		['seedbardirection'] = 'VERTICAL',
-	}
-}
-
 V['watchframe'] = {
 	['enable'] = true,
 }
