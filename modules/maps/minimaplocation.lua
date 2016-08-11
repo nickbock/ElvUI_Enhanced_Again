@@ -70,8 +70,6 @@ end
 
 local function HideMinimap()
 	cluster:Hide()
-	-- Can't fade, will taint UI
-	-- FadeFrame(cluster, "OUT", cluster:GetAlpha(), 0, .5, function() cluster:Hide() end)
 end
 
 local function FadeInMinimap()
@@ -117,7 +115,7 @@ hooksecurefunc(M, 'UpdateSettings', function()
 
 	local point, relativeTo, relativePoint, xOfs, yOfs = holder:GetPoint()
 	if E.db.general.minimap.locationText == 'ABOVE' then
-		holder:SetPoint(point, relativeTo, relativePoint, 0, -22)
+		holder:SetPoint(point, relativeTo, relativePoint, 0, -19)
 		holder:Height(holder:GetHeight() + 22)
 		panel:SetScript('OnUpdate', UpdateLocation)
 		panel:Show()
