@@ -293,6 +293,7 @@ function EO:EquipmentOptions()
 	EQ:UpdateTalentConfiguration()
 end
 
+--[[
 function EO:FarmerOptions()
 	local F = E:GetModule('Farmer')
 
@@ -361,7 +362,7 @@ function EO:FarmerOptions()
 		},
 	}
 end
-
+--]]
 function EO:MapOptions()
 	local MB = E:GetModule('MinimapButtons')
 
@@ -862,7 +863,7 @@ end
 function EO:GetOptions()
 	EO:DataTextOptions()
 	EO:EquipmentOptions()
-	EO:FarmerOptions()
+	--EO:FarmerOptions()
 	EO:MapOptions()
 	EO:MiscOptions()
 	EO:NameplateOptions()
