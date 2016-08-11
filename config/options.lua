@@ -30,8 +30,8 @@ end
 function EO:DataTextOptions()
 	local EDT = E:GetModule('ExtraDataTexts')
 
-	E.Options.args.datatexts.args.actionbar1 = {
-		order = 20,
+	E.Options.args.datatexts.args.panels.args.actionbar1 = {
+		order = 30,
 		name = ColorizeSettingName(L['Actionbar1DataPanel']),
 		type = 'toggle',
 		set = function(info, value) 
@@ -40,8 +40,8 @@ function EO:DataTextOptions()
 		end,
 	}
 	
-	E.Options.args.datatexts.args.actionbar3 = {
-		order = 21,
+	E.Options.args.datatexts.args.panels.args.actionbar3 = {
+		order = 31,
 		name = ColorizeSettingName(L['Actionbar3DataPanel']),
 		type = 'toggle',
 		set = function(info, value) 
@@ -50,8 +50,8 @@ function EO:DataTextOptions()
 		end,
 	}
 	
-	E.Options.args.datatexts.args.actionbar5 = {
-		order = 22,
+	E.Options.args.datatexts.args.panels.args.actionbar5 = {
+		order = 32,
 		name = ColorizeSettingName(L['Actionbar5DataPanel']),
 		type = 'toggle',
 		set = function(info, value) 
@@ -59,7 +59,15 @@ function EO:DataTextOptions()
 			EDT:ToggleSettings(5)
 		end,
 	}
+
+	E.Options.args.datatexts.args.panels.args.spacer = {
+		order = 33,
+		type = "description",
+		name = "\n",
+	}
 end
+
+
 
 function EO:EquipmentOptions()
 	local EQ = E:GetModule('Equipment')
