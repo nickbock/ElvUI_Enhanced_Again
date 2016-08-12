@@ -50,7 +50,7 @@ local function CreateEnhancedMaplocation()
 
 	yMap = CreateFrame('Frame', "MapCoordinatesY", panel)
 	yMap:SetTemplate('Transparent')
-	yMap:Point('RIGHT', panel, 'RIGHT', -2, 0)
+	yMap:Point('RIGHT', panel, 'RIGHT', -2.5, 0)
 	yMap:Size(40, 22)
 
 	yMap.text = yMap:CreateFontString(nil, "OVERLAY")
