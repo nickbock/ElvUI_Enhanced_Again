@@ -2,8 +2,9 @@
 * Changed name of the add-on and switched curseforge project
 * Moved the DataText toggles to the correct settings panel
 * Small localization updates
-* fixed a alignment bug in the minimap enhancement (#29)
+* fixed alignment bugs in the minimap enhancement (#29, #28)
 * Disabled the Farmer module in preparation of deleting the module
+
 
 3.1.1-beta6
 * Correctly disable nameplate module (caused lua errors for some people)
