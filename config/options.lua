@@ -293,80 +293,9 @@ function EO:EquipmentOptions()
 	EQ:UpdateTalentConfiguration()
 end
 
---[[
-function EO:FarmerOptions()
-	local F = E:GetModule('Farmer')
-
-	E.Options.args.farmer = {
-		type = 'group',
-		name = ColorizeSettingName(L['Farmer']),
-		get = function(info) return E.private.farmer[ info[#info] ] end,
-		set = function(info, value) E.private.farmer[ info[#info] ] = value end,
-		args = {
-			intro = {
-				order = 1,
-				type = 'description',
-				name = L["FARMER_DESC"],
-			},
-			enabled = {
-				order = 2,
-				type = 'toggle',
-				name = L['Enable'],
-				set = function(info, value) E.private.farmer.enabled = value E:StaticPopup_Show("PRIVATE_RL") end
-			},
-			farmbars = {
-				order = 3,
-				type = "group",
-				name = L["Farmer Bars"],
-				guiInline = true,
-				disabled = function() return not E.private.farmer.enabled end,
-				get = function(info) return E.private.farmer.farmbars[ info[#info] ] end,
-				set = function(info, value) E.private.farmer.farmbars[ info[#info] ] = value end,
-				args = {
-					enable = {
-						type = "toggle",
-						order = 1,
-						name = L['Enable'],
-						desc = L['Enable/Disable the farmer bars.'],
-						set = function(info, value) E.private.farmer.farmbars.enable = value F:UpdateLayout() end
-					},
-					onlyactive = {
-						order = 2,
-						type = 'toggle',
-						name = L['Only active buttons'],
-						desc = L['Only show the buttons for the seeds, portals, tools you have in your bags.'],
-						set = function(info, value) E.private.farmer.farmbars.onlyactive = value F:UpdateLayout() end,
-						disabled = function() return not E.private.farmer.farmbars.enable end,
-					},
-					droptools = {
-						order = 3,
-						type = 'toggle',
-						name = L['Drop Tools'],
-						desc = L['Automatically drop tools from your bags when leaving the farming area.'],
-						disabled = function() return not E.private.farmer.farmbars.enable end,
-					},
-					seedbardirection = {
-						order = 4,
-						type = 'select',
-						name = L['Seed Bar Direction'],
-						desc = L['The direction of the seed bar buttons (Horizontal or Vertical).'],
-						set = function(info, value) E.private.farmer.farmbars.seedbardirection = value F:UpdateLayout() end,
-						disabled = function() return not E.private.farmer.farmbars.enable end,
-						values = {
-							['VERTICAL'] = L['Vertical'],
-							['HORIZONTAL'] = L['Horizontal'],
-						},
-					},				
-				},
-			},
-		},
-	}
-end
---]]
 function EO:MapOptions()
 	local MB = E:GetModule('MinimapButtons')
-
-	E.Options.args.general.args.minimap.args.locationdigits = {
+	E.Options.args.maps.args.minimap.args.locationdigits = {
 		order = 4,
 		type = 'range',
 		name = ColorizeSettingName(L['Location Digits']),
@@ -377,8 +306,8 @@ function EO:MapOptions()
 		disabled = function() return E.db.general.minimap.locationText ~= 'ABOVE' end,
 	}
 
-	E.Options.args.general.args.minimap.args.hideincombat = {
-		order = 5,
+	E.Options.args.maps.args.minimap.args.hideincombat = {
+		order = 6,
 		type = 'toggle',
 		name = ColorizeSettingName(L["Combat Hide"]),
 		desc = L["Hide minimap while in combat."],
@@ -386,8 +315,8 @@ function EO:MapOptions()
 		set = function(info, value) E.private.general.minimap.hideincombat = value; E:GetModule('Minimap'):UpdateSettings() end,					
 	}
 	
-	E.Options.args.general.args.minimap.args.fadeindelay = {
-		order = 6,
+	E.Options.args.maps.args.minimap.args.fadeindelay = {
+		order = 5,
 		type = 'range',
 		name = ColorizeSettingName(L["FadeIn Delay"]),
 		desc = L["The time to wait before fading the minimap back in after combat hide. (0 = Disabled)"],
@@ -397,7 +326,7 @@ function EO:MapOptions()
 		disabled = function() return not E.private.general.minimap.hideincombat end,
 	}
 	
-	E.Options.args.general.args.minimapbar = {
+	E.Options.args.maps.args.minimapbar = {
 		order = 4,
 		get = function(info) return E.private.general.minimapbar[ info[#info] ] end,
 		set = function(info, value) E.private.general.minimapbar[ info[#info] ] = value; MB:UpdateLayout() end,
@@ -484,7 +413,7 @@ function EO:MapOptions()
 		}
 	}
 	
-	E.Options.args.general.args.minimap.args.locationText.values = {
+	E.Options.args.maps.args.minimap.args.locationText.values = {
 		['MOUSEOVER'] = L['Minimap Mouseover'],
 		['SHOW'] = L['Always Display'],
 		['ABOVE'] = L['Above Minimap'],
@@ -535,13 +464,13 @@ function EO:MiscOptions()
 end
 
 function EO:NameplateOptions()
-	E.Options.args.nameplate.args.general.args.targetcount = {
+	E.Options.args.nameplate.args.generalGroup.args.targetcount = {
 		type = "toggle",
 		order = 13,
 		name = ColorizeSettingName(L["Target Count"]),
 		desc = L["Display the number of party / raid members targetting the nameplate unit."],
 	}
-	E.Options.args.nameplate.args.general.args.showthreat = {
+	E.Options.args.nameplate.args.generalGroup.args.targetcount = {
 		type = "toggle",
 		order = 13,
 		name = ColorizeSettingName(L["Threat Text"]),
@@ -863,7 +792,6 @@ end
 function EO:GetOptions()
 	EO:DataTextOptions()
 	EO:EquipmentOptions()
-	--EO:FarmerOptions()
 	EO:MapOptions()
 	EO:MiscOptions()
 	EO:NameplateOptions()
