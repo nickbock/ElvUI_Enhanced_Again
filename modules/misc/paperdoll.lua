@@ -72,8 +72,8 @@ function PD:UpdatePaperDoll(inspect)
 	
 	local frame, slot, current, maximum, r, g, b
 	local baseName = inspect and "Inspect" or "Character"
-	local itemLink, itemLevel
-	local	avgItemLevel, avgEquipItemLevel = GetAverageItemLevel()
+	local itemLink, itemLevel, itemLevelMax
+	local avgItemLevel, avgEquipItemLevel = GetAverageItemLevel()
 	
 	for k, info in pairs(slots) do
 		frame = _G[("%s%s"):format(baseName, k)]
@@ -83,13 +83,21 @@ function PD:UpdatePaperDoll(inspect)
 			frame.ItemLevel:SetText()
 			if E.private.equipment.itemlevel.enable and info[1] then
 				itemLink = GetInventoryItemLink(unit, slot)
-				
-        if itemLink then
-      		itemLevel = self:GetItemLevel(unit, itemLink)
-          if itemLevel and avgEquipItemLevel then
-              frame.ItemLevel:SetFormattedText("%s%d|r", levelColors[(itemLevel < avgEquipItemLevel-10 and 0 or (itemLevel > avgEquipItemLevel + 10 and 1 or (2)))], itemLevel)
-          end
-        end
+
+		        if itemLink then
+        			if slot == 16 and GetInventoryItemQuality("player", slot) == LE_ITEM_QUALITY_ARTIFACT then
+        				itemLinkOffhand = GetInventoryItemLink(unit, INVSLOT_OFFHAND)
+        				itemLevel = math.max(self:GetItemLevel(unit, itemLink), self:GetItemLevel(unit, itemLinkOffhand))
+        			elseif slot == 17 and GetInventoryItemQuality("player", slot) == LE_ITEM_QUALITY_ARTIFACT then
+        				itemLinkMainhand = GetInventoryItemLink(unit, INVSLOT_MAINHAND)
+        				itemLevel = math.max(self:GetItemLevel(unit, itemLink), self:GetItemLevel(unit, itemLinkMainhand))
+        			else
+      					itemLevel = self:GetItemLevel(unit, itemLink)
+      				end
+          			if itemLevel and avgEquipItemLevel then
+              			frame.ItemLevel:SetFormattedText("%s%d|r", levelColors[(itemLevel < avgEquipItemLevel-10 and 0 or (itemLevel > avgEquipItemLevel + 10 and 1 or (2)))], itemLevel)
+          			end
+        		end
 			end
 		end
 
@@ -285,7 +293,7 @@ function PD:Initialize()
 	PD:RegisterEvent("SOCKET_INFO_UPDATE", "UpdatePaperDoll", false)
 	PD:RegisterEvent("COMBAT_RATING_UPDATE", "UpdatePaperDoll", false)
 	PD:RegisterEvent("MASTERY_UPDATE", "UpdatePaperDoll", false)
-	
+			
 	PD:RegisterEvent("PLAYER_ENTERING_WORLD", "InitialUpdatePaperDoll")
 end
 
