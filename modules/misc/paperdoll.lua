@@ -318,7 +318,7 @@ end
 
 function PD:firstGarrisonToast()
   PD:UnregisterEvent("GARRISON_MISSION_FINISHED")
-  self:UpdatePaperDoll()
+  self:ScheduleTimer("UpdatePaperDoll", 7)
 end
 
 function PD:Initialize()
