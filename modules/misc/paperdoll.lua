@@ -85,12 +85,14 @@ function PD:UpdatePaperDoll(inspect)
 				itemLink = GetInventoryItemLink(unit, slot)
 
 		        if itemLink then
-        			if slot == 16 and GetInventoryItemQuality("player", slot) == LE_ITEM_QUALITY_ARTIFACT then
-        				itemLinkOffhand = GetInventoryItemLink(unit, INVSLOT_OFFHAND)
-        				itemLevel = math.max(self:GetItemLevel(unit, itemLink), self:GetItemLevel(unit, itemLinkOffhand))
-        			elseif slot == 17 and GetInventoryItemQuality("player", slot) == LE_ITEM_QUALITY_ARTIFACT then
-        				itemLinkMainhand = GetInventoryItemLink(unit, INVSLOT_MAINHAND)
-        				itemLevel = math.max(self:GetItemLevel(unit, itemLink), self:GetItemLevel(unit, itemLinkMainhand))
+        			if ((slot == 16 or slot == 17) and GetInventoryItemQuality(unit, slot) == LE_ITEM_QUALITY_ARTIFACT) then
+        				local itemLevelMainHand = 0
+						local itemLevelOffHand = 0
+						local itemLinkMainHand = GetInventoryItemLink(unit, 16)
+						local itemLinkOffhand = GetInventoryItemLink(unit, 17)
+						if itemLinkMainHand then itemLevelMainHand = self:GetItemLevel(unit, itemLinkMainHand) end
+        				if itemLinkOffhand then itemLevelOffHand = self:GetItemLevel(unit, itemLinkOffhand) end
+						itemLevel = math.max(itemLevelMainHand, itemLevelOffHand)			
         			else
       					itemLevel = self:GetItemLevel(unit, itemLink)
       				end
@@ -252,6 +254,7 @@ end
 function PD:InitialUpdatePaperDoll()
 	PD:UnregisterEvent("PLAYER_ENTERING_WORLD")
 
+
 	LoadAddOn("Blizzard_InspectUI")
 
 	self:BuildInfoText("Character")
@@ -285,6 +288,11 @@ function PD:BuildInfoText(name)
 	end
 end
 
+function PD:firstGarrisonToast()
+	PD:UnregisterEvent("GARRISON_MISSION_FINISHED")
+	self:UpdatePaperDoll()
+end
+
 function PD:Initialize()
 	local frame
 	
@@ -293,7 +301,8 @@ function PD:Initialize()
 	PD:RegisterEvent("SOCKET_INFO_UPDATE", "UpdatePaperDoll", false)
 	PD:RegisterEvent("COMBAT_RATING_UPDATE", "UpdatePaperDoll", false)
 	PD:RegisterEvent("MASTERY_UPDATE", "UpdatePaperDoll", false)
-			
+	
+	PD:RegisterEvent("GARRISON_MISSION_FINISHED", "firstGarrisonToast", false)
 	PD:RegisterEvent("PLAYER_ENTERING_WORLD", "InitialUpdatePaperDoll")
 end
 
