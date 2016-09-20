@@ -1,3 +1,6 @@
+3.2.0-beta4
+* Added an option to enable the pre legion tab targeting system. You will find this option in the general ElvUI settings. It applies the "/console TargetNearestUseOld 1" command automatically when you logon.
+
 3.2.0-beta3
 * Itemlevel for twohanded artifact weapons fixed - Thanks q3fuba for the help!
 * When entering the game and a Class Hall mission is complete the alert broke the itemlvl update. This is now fixed.
