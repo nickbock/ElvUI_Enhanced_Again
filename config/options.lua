@@ -424,8 +424,17 @@ end
 function EO:MiscOptions()
 	local M = E:GetModule('MiscEnh')
 
-	E.Options.args.general.args.general.args.pvpautorelease = {
+	E.Options.args.general.args.general.args.useoldtabtarget = {
 		order = 40,
+		type = "toggle",
+		name = ColorizeSettingName(L['Use Old TabTarget']),
+		desc = L['Use the old TabTarget system from before Legion.'],
+		get = function(info) return E.private.general.useoldtabtarget end,
+		set = function(info, value) E.private.general.useoldtabtarget = value; if value then SetCVar("TargetNearestUseOld", 1); DEFAULT_CHAT_FRAME:AddMessage(L['Use Old TabTarget Enabled'], 1.0, 0.5, 0.0) elseif not value then SetCVar("TargetNearestUseOld", 0) end; end,
+	}
+
+	E.Options.args.general.args.general.args.pvpautorelease = {
+		order = 41,
 		type = "toggle",
 		name = ColorizeSettingName(L['PvP Autorelease']),
 		desc = L['Automatically release body when killed inside a battleground.'],
@@ -434,7 +443,7 @@ function EO:MiscOptions()
 	}
 	
 	E.Options.args.general.args.general.args.autorepchange = {
-		order = 41,
+		order = 42,
 		type = "toggle",
 		name = ColorizeSettingName(L['Track Reputation']),
 		desc = L['Automatically change your watched faction on the reputation bar to the faction you got reputation points for.'],
@@ -443,7 +452,7 @@ function EO:MiscOptions()
 	}
 	
 	E.Options.args.general.args.general.args.selectquestreward = {
-		order = 42,
+		order = 43,
 		type = "toggle",
 		name = ColorizeSettingName(L['Select Quest Reward']),
 		desc = L['Automatically select the quest reward with the highest vendor sell value.'],
