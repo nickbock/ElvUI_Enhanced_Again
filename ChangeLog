@@ -1,3 +1,6 @@
+3.2.0-beta5
+* Updated progression check to Legion 7.0 raids.
+
 3.2.0-beta4
 * Added an option to enable the pre legion tab targeting system. You will find this option in the general ElvUI settings. It applies the "/console TargetNearestUseOld 1" command automatically when you logon.
 
