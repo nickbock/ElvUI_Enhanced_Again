@@ -1,3 +1,7 @@
+3.2.0-beta6
+* fixed lua error for elvui-10.24
+* remove chatmessage for oldtabtarget
+
 3.2.0-beta5
 * Updated progression check to Legion 7.0 raids.
 

@@ -37,7 +37,7 @@ function M:UseOldTabTarget()
 	if GetCVar("TargetNearestUseOld") ~= "1" then 
 		useoldtabtarget:SetScript("OnEvent", function(self, event)
 			SetCVar("TargetNearestUseOld", 1)
-			DEFAULT_CHAT_FRAME:AddMessage(L['Use Old TabTarget Enabled'], 1.0, 0.5, 0.0)
+			--DEFAULT_CHAT_FRAME:AddMessage(L['Use Old TabTarget Enabled'], 1.0, 0.5, 0.0)
 		end)
 	end
 end
