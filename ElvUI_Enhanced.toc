@@ -1,8 +1,8 @@
-## Interface: 70000
+## Interface: 70100
 ## Title: |cff1784d1ElvUI|r Enhanced (Legion)
 ## Author: Feraldin
 ## X-Credits: Instant, Tristimdorio (Omega1970), Azilroka, Lockslap, Sortokk, Repooc, moresunders
-## Version: 3.2.0-beta6
+## Version: 3.2.0-beta7
 ## Notes: Plugin-Enhancements for |cff1784d1ElvUI|r.
 ## X-Category: Plugins
 ## URL: https://wow.curseforge.com/addons/elvui-enhanced-again/

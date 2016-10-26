@@ -4,6 +4,7 @@ local M = E:GetModule('Minimap')
 local GetPlayerMapPosition = GetPlayerMapPosition
 local init = false
 local cluster, panel, location, xMap, yMap
+local inRestrictedArea = false
 
 local digits ={
 	[0] = { .5, '%.0f' },
@@ -12,6 +13,8 @@ local digits ={
 }
 
 local function UpdateLocation(self, elapsed)
+	if inRestrictedArea then return; end
+	
 	location.elapsed = (location.elapsed or 0) + elapsed
 	if location.elapsed < digits[E.private.general.minimap.locationdigits][1] then return end
 
@@ -89,6 +92,18 @@ end
 hooksecurefunc(M, 'Update_ZoneText', function()
 	location.text:SetTextColor(M:GetLocTextColor())
 	location.text:SetText(strsub(GetMinimapZoneText(),1,25))
+
+	local x = GetPlayerMapPosition("player")
+	if not x then
+		inRestrictedArea = true
+		xMap.text:SetText("N/A")
+		yMap.text:SetText("N/A")
+		--self:Hide()
+	else
+		inRestrictedArea = false
+		--self:Show()
+	end
+
 end)
 
 hooksecurefunc(M, 'UpdateSettings', function()
