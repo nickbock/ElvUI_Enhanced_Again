@@ -134,7 +134,10 @@ function UF:UpdateRoleIconFrame(frame)
 	if not frame then return end
 
 	if E.db.unitframe.hideroleincombat then
-		RegisterStateDriver(frame.LFDRole:GetParent(), 'visibility', '[combat]hide;show')
+		local p = frame.LFDRole:GetParent()
+		local f = CreateFrame('Frame', nil, p)
+		frame.LFDRole:SetParent(f)
+		RegisterStateDriver(f, 'visibility', '[combat]hide;show')
 	end
 end
 

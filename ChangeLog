@@ -1,3 +1,6 @@
+3.2.0-beta8
+* fixed hide roleicon on combat (https://github.com/nickbock/ElvUI_Enhanced_Again/issues/14)
+
 3.2.0-beta7
 * updated locationtext for wow 7.1 changes
 
