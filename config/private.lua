@@ -5,7 +5,7 @@ local E, L, V, P, G = unpack(ElvUI); --Inport: Engine, Locales, PrivateDB, Profi
 V.general.pvpautorelease = true
 V.general.autorepchange = true
 V.general.selectquestreward = true
-V.general.useoldtabtarget = false
+--V.general.useoldtabtarget = false
 
 V.general.minimap.hideincombat = false
 V.general.minimap.fadeindelay = 5

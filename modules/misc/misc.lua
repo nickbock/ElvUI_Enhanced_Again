@@ -28,26 +28,26 @@ function M:LoadAutoRelease()
 	end)
 end
 
-function M:UseOldTabTarget()
-	if not E.private.general.useoldtabtarget then return end
-	local useoldtabtarget = CreateFrame("frame")
+--function M:UseOldTabTarget()
+--	if not E.private.general.useoldtabtarget then return end
+--	local useoldtabtarget = CreateFrame("frame")
 
-	useoldtabtarget:RegisterEvent("PLAYER_ENTERING_WORLD")
+--	useoldtabtarget:RegisterEvent("PLAYER_ENTERING_WORLD")
 
-	if GetCVar("TargetNearestUseOld") ~= "1" then 
-		useoldtabtarget:SetScript("OnEvent", function(self, event)
-			SetCVar("TargetNearestUseOld", 1)
+--	if GetCVar("TargetNearestUseOld") ~= "1" then 
+--		useoldtabtarget:SetScript("OnEvent", function(self, event)
+--			SetCVar("TargetNearestUseOld", 1)
 			--DEFAULT_CHAT_FRAME:AddMessage(L['Use Old TabTarget Enabled'], 1.0, 0.5, 0.0)
-		end)
-	end
-end
+--		end)
+--	end
+--end
 
 function M:Initialize()
 	self:LoadAutoRelease()
 	self:LoadQuestReward()
 	self:LoadWatchedFaction()
 	self:LoadMoverTransparancy()
-	self:UseOldTabTarget()
+	--self:UseOldTabTarget()
 end
 
 E:RegisterModule(M:GetName())

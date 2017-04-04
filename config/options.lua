@@ -424,14 +424,14 @@ end
 function EO:MiscOptions()
 	local M = E:GetModule('MiscEnh')
 
-	E.Options.args.general.args.general.args.useoldtabtarget = {
-		order = 40,
-		type = "toggle",
-		name = ColorizeSettingName(L['Use Old TabTarget']),
-		desc = L['Use the old TabTarget system from before Legion.'],
-		get = function(info) return E.private.general.useoldtabtarget end,
-		set = function(info, value) E.private.general.useoldtabtarget = value; if value then SetCVar("TargetNearestUseOld", 1); DEFAULT_CHAT_FRAME:AddMessage(L['Use Old TabTarget Enabled'], 1.0, 0.5, 0.0) elseif not value then SetCVar("TargetNearestUseOld", 0) end; end,
-	}
+	--E.Options.args.general.args.general.args.useoldtabtarget = {
+	--	order = 40,
+	--	type = "toggle",
+	--	name = ColorizeSettingName(L['Use Old TabTarget']),
+	--	desc = L['Use the old TabTarget system from before Legion.'],
+	--	get = function(info) return E.private.general.useoldtabtarget end,
+	--	set = function(info, value) E.private.general.useoldtabtarget = value; if value then SetCVar("TargetNearestUseOld", 1); DEFAULT_CHAT_FRAME:AddMessage(L['Use Old TabTarget Enabled'], 1.0, 0.5, 0.0) elseif not value then SetCVar("TargetNearestUseOld", 0) end; end,
+	--}
 
 	E.Options.args.general.args.general.args.pvpautorelease = {
 		order = 41,

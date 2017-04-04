@@ -3,11 +3,11 @@ local M = E:GetModule('MiscEnh');
 
 local find, gsub, format = string.find, string.gsub, string.format
 
-local incpat 			= gsub(gsub(FACTION_STANDING_INCREASED, "(%%s)", "(.+)"), "(%%d)", "(.+)")
-local changedpat	= gsub(gsub(FACTION_STANDING_CHANGED, "(%%s)", "(.+)"), "(%%d)", "(.+)")
-local decpat			= gsub(gsub(FACTION_STANDING_DECREASED, "(%%s)", "(.+)"), "(%%d)", "(.+)")
-local standing    = ('%s:'):format(STANDING)
-local reputation  = ('%s:'):format(REPUTATION)
+local incpat = gsub(gsub(FACTION_STANDING_INCREASED, "(%%s)", "(.+)"), "(%%d)", "(.+)")
+local changedpat = gsub(gsub(FACTION_STANDING_CHANGED, "(%%s)", "(.+)"), "(%%d)", "(.+)")
+local decpat = gsub(gsub(FACTION_STANDING_DECREASED, "(%%s)", "(.+)"), "(%%d)", "(.+)")
+local standing = ('%s:'):format(STANDING)
+local reputation = ('%s:'):format(REPUTATION)
 
 function M:SetWatchedFactionOnReputationBar(event, msg)
 	if not E.private.general.autorepchange then return end
@@ -15,7 +15,7 @@ function M:SetWatchedFactionOnReputationBar(event, msg)
 	local _, _, faction, amount = find(msg, incpat)
 	if not faction then _, _, faction, amount = find(msg, changedpat) or find(msg, decpat) end
 	if faction then
-		if faction == GUILD_REPUTATION then
+		if faction == GUILD then
 			faction = GetGuildInfo("player")
 		end
 
@@ -30,8 +30,6 @@ function M:SetWatchedFactionOnReputationBar(event, msg)
 		end
 	end
 end
-
-
 
 function M:LoadWatchedFaction()
 	-- no config setting yet
