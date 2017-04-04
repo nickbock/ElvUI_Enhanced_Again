@@ -1,3 +1,8 @@
+3.2.1-beta1
+* version updated to 7.2
+* removed TargetNearestUseOld feature since Blizzard reverted the tab targerting to pre-wow (by default)
+
+
 3.2.0-beta8
 * fixed hide roleicon on combat (https://github.com/nickbock/ElvUI_Enhanced_Again/issues/14)
 
