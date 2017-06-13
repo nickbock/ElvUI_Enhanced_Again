@@ -90,8 +90,8 @@ function PD:UpdatePaperDoll(inspect)
             local itemLevelOffHand = 0
             local itemLinkMainHand = GetInventoryItemLink(unit, 16)
             local itemLinkOffhand = GetInventoryItemLink(unit, 17)
-            if itemLinkMainHand then itemLevelMainHand = self:GetItemLevel(unit, itemLinkMainHand) end
-            if itemLinkOffhand then itemLevelOffHand = self:GetItemLevel(unit, itemLinkOffhand) end
+            if itemLinkMainHand then itemLevelMainHand = self:GetItemLevel(unit, itemLinkMainHand or 0) end
+            if itemLinkOffhand then itemLevelOffHand = self:GetItemLevel(unit, itemLinkOffhand or 0) end
             itemLevel = math.max(itemLevelMainHand, itemLevelOffHand)
           else
             itemLevel = self:GetItemLevel(unit, itemLink)
