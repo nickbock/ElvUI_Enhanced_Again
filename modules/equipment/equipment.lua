@@ -10,7 +10,7 @@ local join = string.join
 
 function EQ:GetCurrentEquipmentSet()
 	if GetNumEquipmentSets() == 0 then return false end
-	for i = 1, GetNumEquipmentSets() do
+	for i = 0, GetNumEquipmentSets() do
 		local name, _, _, isEquipped = GetEquipmentSetInfo(i)
 		if isEquipped then
 			return name
