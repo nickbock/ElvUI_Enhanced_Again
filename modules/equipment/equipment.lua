@@ -9,9 +9,10 @@ local changingEquipmentSet = nil
 local join = string.join
 
 function EQ:GetCurrentEquipmentSet()
-	if GetNumEquipmentSets() == 0 then return false end
-	for i = 0, GetNumEquipmentSets() do
-		local name, _, _, isEquipped = GetEquipmentSetInfo(i)
+	if C_EquipmentSet.GetNumEquipmentSets() == 0 then return false end
+	local equipmentSetIDs = C_EquipmentSet.GetEquipmentSetIDs();
+	for key,value in pairs(equipmentSetIDs) do
+		local name, _, _, isEquipped = C_EquipmentSet.GetEquipmentSetInfo(value)
 		if isEquipped then
 			return name
 		end

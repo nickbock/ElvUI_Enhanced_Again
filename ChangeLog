@@ -2,6 +2,8 @@
 * Updating progression tooltip with new raids
 * fixed bug in calculation artifact iLVL (https://mods.curse.com/addons/wow/elvui-enhanced-again?comment=78)
 * fixed missing equipmentset in equipmentset change feature
+* updated API Deprecated_7_2_0 GetEquipmentSetInfo
+* fixed LUA error (https://github.com/nickbock/ElvUI_Enhanced_Again/issues/28)
 
 3.2.1-beta1
 * version updated to 7.2

@@ -132,7 +132,8 @@ end
 
 function UF:UpdateRoleIconFrame(frame)
 	if not frame then return end
-
+	if not frame.LFDRole then return end
+	
 	if E.db.unitframe.hideroleincombat then
 		local p = frame.LFDRole:GetParent()
 		local f = CreateFrame('Frame', nil, p)
