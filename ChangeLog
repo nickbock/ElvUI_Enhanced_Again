@@ -1,7 +1,14 @@
+3.2.2-beta1
+* Updating progression tooltip with new raids
+* fixed bug in calculation artifact iLVL (https://mods.curse.com/addons/wow/elvui-enhanced-again?comment=78)
+* fixed missing equipmentset in equipmentset change feature
+* updated API Deprecated_7_2_0 GetEquipmentSetInfo
+* fixed LUA error (https://github.com/nickbock/ElvUI_Enhanced_Again/issues/28)
+
 3.2.1-beta1
 * version updated to 7.2
 * removed TargetNearestUseOld feature since Blizzard reverted the tab targerting to pre-wow (by default)
-
+* fixed bug #16 (https://github.com/nickbock/ElvUI_Enhanced_Again/issues/16)
 
 3.2.0-beta8
 * fixed hide roleicon on combat (https://github.com/nickbock/ElvUI_Enhanced_Again/issues/14)

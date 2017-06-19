@@ -27,6 +27,19 @@ local function ColorizeSettingName(settingName)
 	return ("|cffff8000%s|r"):format(settingName)
 end
 
+local function GetAllEquipmentSets()
+	local sets = { ["none"] = L["No Change"] }
+	local equipmentSetIDs = C_EquipmentSet.GetEquipmentSetIDs();
+	for key,value in pairs(equipmentSetIDs) do
+		local name = C_EquipmentSet.GetEquipmentSetInfo(value)
+		if name then
+			sets[name] = name
+		end
+	end
+	tsort(sets, function(a, b) return a < b end)
+	return sets
+end
+
 function EO:DataTextOptions()
 	local EDT = E:GetModule('ExtraDataTexts')
 
@@ -73,6 +86,7 @@ function EO:EquipmentOptions()
 	local EQ = E:GetModule('Equipment')
 	local PD = E:GetModule('PaperDoll')
 	local BI = E:GetModule('BagInfo')
+	local sets = GetAllEquipmentSets()
 
 	E.Options.args.equipment = {
 		type = 'group',
@@ -106,17 +120,7 @@ function EO:EquipmentOptions()
 						name = L["Primary Talent"],
 						desc = L["Choose the equipment set to use for your primary specialization."],
 						disabled = function() return not E.private.equipment.specialization.enable end,
-						values = function()
-							local sets = { ["none"] = L["No Change"] }
-							for i = 1, GetNumEquipmentSets() do
-								local name = GetEquipmentSetInfo(i)
-								if name then
-									sets[name] = name
-								end
-							end
-							tsort(sets, function(a, b) return a < b end)
-							return sets
-						end,
+						values = sets,
 					},
 					spec2 = {
 						type = "select",
@@ -127,17 +131,7 @@ function EO:EquipmentOptions()
 							local numSpecs = GetNumSpecializations(false, self.isPet);
 							return not E.private.equipment.specialization.enable or numSpecs < 2 
 						end,
-						values = function()
-							local sets = { ["none"] = L["No Change"] }
-							for i = 1, GetNumEquipmentSets() do
-								local name = GetEquipmentSetInfo(i)
-								if name then
-									sets[name] = name
-								end
-							end
-							tsort(sets, function(a, b) return a < b end)
-							return sets
-						end,
+						values = sets,
 					},
 					spec3 = {
 						type = "select",
@@ -148,17 +142,7 @@ function EO:EquipmentOptions()
 							local numSpecs = GetNumSpecializations(false, self.isPet);
 							return not E.private.equipment.specialization.enable or numSpecs < 3 
 						end,
-						values = function()
-							local sets = { ["none"] = L["No Change"] }
-							for i = 1, GetNumEquipmentSets() do
-								local name = GetEquipmentSetInfo(i)
-								if name then
-									sets[name] = name
-								end
-							end
-							tsort(sets, function(a, b) return a < b end)
-							return sets
-						end,
+						values = sets,
 					},
 					spec4 = {
 						type = "select",
@@ -169,17 +153,7 @@ function EO:EquipmentOptions()
 							local numSpecs = GetNumSpecializations(false, self.isPet);
 							return not E.private.equipment.specialization.enable or numSpecs < 4 
 						end,
-						values = function()
-							local sets = { ["none"] = L["No Change"] }
-							for i = 1, GetNumEquipmentSets() do
-								local name = GetEquipmentSetInfo(i)
-								if name then
-									sets[name] = name
-								end
-							end
-							tsort(sets, function(a, b) return a < b end)
-							return sets
-						end,
+						values = sets,
 					},
 				},
 			},
