@@ -1,7 +1,7 @@
 local E, L, V, P, G = unpack(ElvUI); --Import: Engine, Locales, PrivateDB, ProfileDB, GlobalDB, Localize Underscore
 local TT = E:GetModule('Tooltip')
 
-local tiers = { "EmN", "NH", "ToV",}
+local tiers = { "EmN", "NH", "ToV","ToS",}
 local levels = { 
 	"Mythic", 
 	"Heroic", 
@@ -26,30 +26,44 @@ local bosses = {
 	},
 	{ -- Nighthold
 		{ --Mythic
-			10943, 10947, 10951, 10955, 10960, 10964, 10968, 10972, 10976, 10980
+			10943, 10947, 10951, 10955, 10960, 10964, 10968, 10972, 10976, 10980,
 		},
 		{ -- Herioc
-			10942, 10946, 10950, 10954, 10959, 10963, 10967, 10971, 10975, 10979
+			10942, 10946, 10950, 10954, 10959, 10963, 10967, 10971, 10975, 10979,
 		},
 		{ -- Normal
-			10941, 10945, 10949, 10953, 10957, 10962, 10966, 10970, 10974, 10978
+			10941, 10945, 10949, 10953, 10957, 10962, 10966, 10970, 10974, 10978,
 		},
 		{ -- LFR
-			10940, 10944, 10948, 10952, 10956, 10961, 10965, 10969, 10973, 10977
+			10940, 10944, 10948, 10952, 10956, 10961, 10965, 10969, 10973, 10977,
 		},
 	},
 	{ -- Trial of Valor
 		{ --Mythic
-			11410, 11414, 11418
+			11410, 11414, 11418,
 		},
 		{ -- Herioc
-			11409, 11413, 11417
+			11409, 11413, 11417,
 		},
 		{ -- Normal
-			11408, 11412, 11416
+			11408, 11412, 11416,
 		},
 		{ -- LFR
-			11407, 11411, 11415
+			11407, 11411, 11415,
+		},
+	},
+	{ -- Tomb of Sargeras
+		{ --Mythic
+			11884, 11888, 11892, 11896, 11900, 11904, 11908, 11912,
+		},
+		{ -- Herioc
+			11883, 11887, 11891, 11895, 11899, 11903, 11907, 11911,
+		},
+		{ -- Normal
+			11882, 11886, 11890, 11894, 11898, 11902, 11906, 11910,
+		},
+		{ -- LFR
+			11881, 11885, 11889, 11893, 11897, 11901, 11905, 11909,
 		},
 	},
 }
@@ -62,7 +76,7 @@ local function GetProgression(guid)
 	local kills, complete, pos = 0, false, 0
 	local statFunc = guid == playerGUID and GetStatistic or GetComparisonStatistic
 	
-	for tier = 1, 3 do
+	for tier = 1, 4 do
 		progressCache[guid].header[tier] = {}
 		progressCache[guid].info[tier] = {}
 		for level = 1, 4 do
@@ -99,7 +113,7 @@ local function SetProgressionInfo(guid, tt)
 		local updated = 0
 		for i=1, tt:NumLines() do
 			local leftTipText = _G["GameTooltipTextLeft"..i]	
-			for tier = 1, 3 do
+			for tier = 1, 4 do
 				for level = 1, 4 do
 					if (leftTipText:GetText() and leftTipText:GetText():find(tiers[tier]) and leftTipText:GetText():find(levels[level])) then
 						-- update found tooltip text line
@@ -114,7 +128,7 @@ local function SetProgressionInfo(guid, tt)
 		if updated == 1 then return end
 		-- add progression tooltip line
 		if highest > 0 then tt:AddLine(" ") end
-		for tier = 1, 3 do
+		for tier = 1, 4 do
 			for level = 1, 4 do
 				tt:AddDoubleLine(progressCache[guid].header[tier][level], progressCache[guid].info[tier][level], nil, nil, nil, 1, 1, 1)
 			end
