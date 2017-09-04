@@ -1,3 +1,8 @@
+3.2.3-beta1
+* Fix for 7.3 - changed menu option to the latest ElvUI
+* Updated TOC
+
+
 3.2.2-beta2
 * Added Tomb of Sargeras to progression tooltip
 * Fixed LUA error (https://github.com/nickbock/ElvUI_Enhanced_Again/issues/31)

@@ -544,10 +544,10 @@ function EO:UnitFramesOptions()
 	local HG = E:GetModule('HealGlow')
 	local TC = E:GetModule('TargetClass')
 	
-	E.Options.args.unitframe.args.general.args.healglowGroup = {
-		order = 2,
+	E.Options.args.unitframe.args.generalOptionsGroup.args.healglowGroup = {
+		order = 4,
 		type = 'group',
-		guiInline = true,
+		--guiInline = true,
 		name = ColorizeSettingName(L['Heal Glow']),
 		args = {
 			healglow = {
@@ -692,7 +692,7 @@ function EO:UnitFramesOptions()
 		},
 	}
 
-	E.Options.args.unitframe.args.general.args.generalGroup.args.hideroleincombat = {
+	E.Options.args.unitframe.args.generalOptionsGroup.args.generalGroup.args.hideroleincombat = {
 		order = 7,
 		name = ColorizeSettingName(L['Hide Role Icon in combat']),
 		desc = L['All role icons (Damage/Healer/Tank) on the unit frames are hidden when you go into combat.'],
