@@ -1,3 +1,7 @@
+3.2.3-beta2
+Fixed https://github.com/nickbock/ElvUI_Enhanced_Again/issues/36
+Updated progression for 7.3 (Removed EmN, added Antorus)
+
 3.2.3-beta1
 * Fix for 7.3 - changed menu option to the latest ElvUI
 * Updated TOC
