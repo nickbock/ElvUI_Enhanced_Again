@@ -90,12 +90,11 @@ function PD:UpdatePaperDoll(inspect)
             local itemLevelOffHand = 0
             local itemLinkMainHand = GetInventoryItemLink(unit, 16)
             local itemLinkOffhand = GetInventoryItemLink(unit, 17)
-            if itemLinkMainHand then itemLevelMainHand = self:GetItemLevel(unit, itemLinkMainHand or 0) end
-            if itemLinkOffhand then itemLevelOffHand = self:GetItemLevel(unit, itemLinkOffhand or 0) end
-            
+            if itemLinkMainHand then itemLevelMainHand = self:GetItemLevel(unit, 16 or 0) end
+            if itemLinkOffhand then itemLevelOffHand = self:GetItemLevel(unit, 17 or 0) end
             itemLevel = math.max(itemLevelMainHand or 0, itemLevelOffHand or 0)
           else
-            itemLevel = self:GetItemLevel(unit, itemLink)
+            itemLevel = self:GetItemLevel(unit, slot)
           end
           if itemLevel and avgEquipItemLevel then
             frame.ItemLevel:SetFormattedText("%s%d|r", levelColors[(itemLevel < avgEquipItemLevel-10 and 0 or (itemLevel > avgEquipItemLevel + 10 and 1 or (2)))], itemLevel)
@@ -130,47 +129,26 @@ end
 local S_ITEM_LEVEL      = "^" .. gsub(ITEM_LEVEL, "%%d", "(%%d+)")
 
 -- Create the tooltip:
-local scantip = CreateFrame("GameTooltip", "MyScanningTooltip", nil, "GameTooltipTemplate")
+local scantip = CreateFrame("GameTooltip", "MyScanningTooltip", WorldFrame, "GameTooltipTemplate")
 scantip:SetOwner(UIParent, "ANCHOR_NONE")
 
---[[  -- Create a function for simplicity's sake:
-
-  local function GetItemUpgradeLevel(itemLink)
-
-      -- Pass the item link to the tooltip:
-
-      scantip:SetHyperlink(itemLink)
-
-
-
-      -- Scan the tooltip:
-
-      for i = 2, scantip:NumLines() do -- Line 1 is always the name so you can skip it.
-
-          local text = _G["MyScanningTooltipTextLeft"..i]:GetText()
-
-          if text and text ~= "" then
-
-              local currentUpgradeLevel, maxUpgradeLevel = strmatch(text, S_UPGRADE_LEVEL)
-
-              if currentUpgradeLevel then
-
-                  return currentUpgradeLevel, maxUpgradeLevel
-
-              end
-
-          end
-
+local function GetSlotItemLevel(unit, slot)
+  scantip:SetInventoryItem(unit, slot)
+  -- Scan the tooltip:
+  for i = 2, scantip:NumLines() do -- Line 1 is always the name so you can skip it.
+    local text = _G["MyScanningTooltipTextLeft"..i]:GetText()
+    if text and text ~= "" then
+      local currentLevel = strmatch(text, S_ITEM_LEVEL)
+      if currentLevel then
+        return tonumber(currentLevel)
       end
-
+    end
   end
-
-]]--
+end
 
 local function GetRealItemLevel(itemLink)
   -- Pass the item link to the tooltip:
   scantip:SetHyperlink(itemLink)
-
   -- Scan the tooltip:
   for i = 2, scantip:NumLines() do -- Line 1 is always the name so you can skip it.
     local text = _G["MyScanningTooltipTextLeft"..i]:GetText()
@@ -183,48 +161,23 @@ local function GetRealItemLevel(itemLink)
   end
 end
 
-
-function PD:GetItemLevel(unit, itemLink)
+function PD:GetItemLevel(unit, slot)
+  local itemLink = GetInventoryItemLink(unit, slot)
   local rarity, itemLevel = select(3, GetItemInfo(itemLink))
   if rarity == 7 then -- heirloom adjust
     itemLevel = self:HeirLoomLevel(unit, itemLink)
   end
-
-  --[[
-
-  local upgrade = itemLink:match(":(%d+)\124h%[")
-
-
-
-  if itemLevel and upgrade and levelAdjust[upgrade] then
-
-    itemLevel = itemLevel + levelAdjust[upgrade]
-
+  itemlevel = GetSlotItemLevel(unit, slot)
+  if itemlevel then
+    return itemlevel
+  else
+    itemLevel = GetRealItemLevel(itemLink)
+    itemLevel = tonumber(itemLevel)
+    return itemLevel
   end
-
-]]--
-  -- Now you can just call the function to get the levels:
-
-  --print(type(itemLevel))
-  itemLevel = GetRealItemLevel(itemLink)
-  itemLevel = tonumber(itemLevel)
-  --print(type(itemLevel))
-  return itemLevel
 end
 
---[[heirloom ilvl equivalents
 
-Vanilla: 1-60 = 60 / 60 = scales by 1 ilvl per player level
-
-TBC rares: 85-115 = 30 / 10 = scales by 3 ilvl per player level
-
-WLK rares: 130-190(200) = 60 / 10 = scales by 6 ilvl per player level
-
-CAT rares: 272-333 = 61 / 5 = scales by 12.2 ilvl per player level
-
-MOP rares: 364-450 = 86 / 5 = scales by 17.2 ilvl per player level (guesswork)
-
-]]
 function PD:HeirLoomLevel(unit, itemLink)
   local level = UnitLevel(unit)
 
