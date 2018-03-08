@@ -77,7 +77,6 @@ function PD:UpdatePaperDoll(inspect)
 
   for k, info in pairs(slots) do
     frame = _G[("%s%s"):format(baseName, k)]
-
     slot = GetInventorySlotInfo(k)
     if info[1] then
       frame.ItemLevel:SetText()
@@ -122,7 +121,6 @@ function PD:DelayUpdateInfo(inspect)
   end
 end
 
-
 -- from http://www.wowinterface.com/forums/showthread.php?p=284771 by PhanX
 -- Construct your saarch pattern based on the existing global string:
 --  local S_UPGRADE_LEVEL   = "^" .. gsub(ITEM_UPGRADE_TOOLTIP_FORMAT, "%%d", "(%%d+)")
@@ -133,6 +131,7 @@ local scantip = CreateFrame("GameTooltip", "MyScanningTooltip", WorldFrame, "Gam
 scantip:SetOwner(UIParent, "ANCHOR_NONE")
 
 local function GetSlotItemLevel(unit, slot)
+  scantip:ClearLines()
   scantip:SetInventoryItem(unit, slot)
   -- Scan the tooltip:
   for i = 2, scantip:NumLines() do -- Line 1 is always the name so you can skip it.
@@ -148,6 +147,7 @@ end
 
 local function GetRealItemLevel(itemLink)
   -- Pass the item link to the tooltip:
+  scantip:ClearLines()
   scantip:SetHyperlink(itemLink)
   -- Scan the tooltip:
   for i = 2, scantip:NumLines() do -- Line 1 is always the name so you can skip it.
@@ -234,11 +234,8 @@ function PD:InspectFrame_UpdateTabsComplete()
 end
 
 function PD:InitialUpdatePaperDoll()
-  PD:UnregisterEvent("PLAYER_ENTERING_WORLD")
-
-
+  PD:UnregisterEvent("PLAYER_LOGIN")
   LoadAddOn("Blizzard_InspectUI")
-
   self:BuildInfoText("Character")
   self:BuildInfoText("Inspect")
 
@@ -283,9 +280,8 @@ function PD:Initialize()
   PD:RegisterEvent("SOCKET_INFO_UPDATE", "UpdatePaperDoll", false)
   PD:RegisterEvent("COMBAT_RATING_UPDATE", "UpdatePaperDoll", false)
   PD:RegisterEvent("MASTERY_UPDATE", "UpdatePaperDoll", false)
-
-  PD:RegisterEvent("GARRISON_MISSION_FINISHED", "firstGarrisonToast", false)
-  PD:RegisterEvent("PLAYER_ENTERING_WORLD", "InitialUpdatePaperDoll")
+  --PD:RegisterEvent("GARRISON_MISSION_FINISHED", "firstGarrisonToast", false)
+  PD:RegisterEvent("PLAYER_LOGIN", "InitialUpdatePaperDoll")
 end
 
 E:RegisterModule(PD:GetName())
