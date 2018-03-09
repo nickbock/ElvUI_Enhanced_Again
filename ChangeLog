@@ -1,3 +1,7 @@
+3.2.4-beta2
+* Fix some paperdoll itemlvl bugs.
+* Progression Tooltip - Raid order changed to release order.
+
 3.2.4-beta1
 Fixed https://github.com/nickbock/ElvUI_Enhanced_Again/issues/40
 
