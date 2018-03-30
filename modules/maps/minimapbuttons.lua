@@ -137,6 +137,7 @@ function MB:SkinButton(frame)
 	if name == "DBMMinimapButton" then frame:SetNormalTexture("Interface\\Icons\\INV_Helmet_87") end
 	if name == "SmartBuff_MiniMapButton" then frame:SetNormalTexture(select(3, GetSpellInfo(12051))) end
 	if name == "GarrisonLandingPageMinimapButton" and E.minimapbuttons.db.mbgarrison then frame:SetScale(1) end
+	if name == "GRM_MinimapButton" then frame.GRM_MinimapButtonBorder:Hide() end
 	
 	if not frame.isSkinned then
 		frame:HookScript('OnEnter', OnEnter)
