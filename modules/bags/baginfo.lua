@@ -47,9 +47,10 @@ function BI:BuildEquipmentMap(clear)
 	if clear then return end
 	
 	local name, player, bank, bags, slot, bag, key
-	for i = 1, GetNumEquipmentSets() do
-		name = GetEquipmentSetInfo(i)
-		GetEquipmentSetLocations(name, infoArray)
+	local equipmentSetIDs = C_EquipmentSet.GetEquipmentSetIDs();
+	for key,value in pairs(equipmentSetIDs) do
+		local name = C_EquipmentSet.GetEquipmentSetInfo(value)
+		local infoArray = C_EquipmentSet.GetItemLocations(value)
 		for _, location in pairs(infoArray) do
 			if location < -1 or location > 1 then
 				player, bank, bags, _, slot, bag = EquipmentManager_UnpackLocation(location)

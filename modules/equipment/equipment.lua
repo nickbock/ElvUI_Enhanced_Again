@@ -3,7 +3,7 @@ local EQ = E:NewModule('Equipment', 'AceHook-3.0', 'AceEvent-3.0');
 
 -- Based on ElvUI Improved Spec Switch Datatext
 -- Author: Lockslap
--- Updated for Legion by NickBock/Feraldin
+-- Updated for Legion/BtS by NickBock/Feraldin
 
 local changingEquipmentSet = nil
 local join = string.join
@@ -21,7 +21,7 @@ function EQ:GetCurrentEquipmentSet()
 end
 
 function EQ:CheckForGearChange()
-	if InCombatLockdown() or GetNumEquipmentSets() == 0 or not self.db then return end
+	if InCombatLockdown() or C_EquipmentSet.GetNumEquipmentSets() == 0 or not self.db then return end
 
 	local activeSet = EQ:GetCurrentEquipmentSet()
 	local currentSpec = GetSpecialization()
@@ -32,7 +32,8 @@ function EQ:CheckForGearChange()
 			local set = self.db.equipmentset
 			if set ~= "none" and set ~= activeSet then
 				changingEquipmentSet = set
-				UseEquipmentSet(set)
+				local sID = C_EquipmentSet.GetEquipmentSetID(set)
+				C_EquipmentSet.UseEquipmentSet(sID)	
 			end
 			return
 		end
@@ -43,7 +44,8 @@ function EQ:CheckForGearChange()
 		local set = currentSpec == 1 and self.db.spec1 or currentSpec == 2 and self.db.spec2 or currentSpec == 3 and self.db.spec3 or currentSpec == 4 and self.db.spec4
 		if set ~= "none" and set ~= activeSet then
 			changingEquipmentSet = set
-			UseEquipmentSet(set)			
+			local sID = C_EquipmentSet.GetEquipmentSetID(set)
+			C_EquipmentSet.UseEquipmentSet(sID)			
 		end
 	end
 end

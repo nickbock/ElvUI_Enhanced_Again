@@ -104,7 +104,7 @@ function EO:EquipmentOptions()
 				type = "group",
 				name = L["Specialization"],
 				guiInline = true,
-				disabled = function() return GetNumEquipmentSets() == 0 end,
+				disabled = function() return C_EquipmentSet.GetNumEquipmentSets() == 0 end,
 				args = {
 					enable = {
 						type = "toggle",
@@ -162,7 +162,7 @@ function EO:EquipmentOptions()
 				type = "group",
 				name = L["Battleground"],
 				guiInline = true,
-				disabled = function() return GetNumEquipmentSets() == 0 end,
+				disabled = function() return C_EquipmentSet.GetNumEquipmentSets() == 0 end,
 				args = {
 					enable = {
 						type = "toggle",
@@ -178,19 +178,7 @@ function EO:EquipmentOptions()
 						name = L["Equipment Set"],
 						desc = L["Choose the equipment set to use when you enter a battleground or arena."],
 						disabled = function() return not E.private.equipment.battleground.enable end,
-						values = function()
-							local sets = {
-								["none"] = L["No Change"],
-							}
-							for i = 1, GetNumEquipmentSets() do
-								local name = GetEquipmentSetInfo(i)
-								if name then
-									sets[name] = name
-								end
-							end
-							tsort(sets, function(a, b) return a < b end)
-							return sets
-						end,
+						values = sets,
 					},
 				},
 			},
