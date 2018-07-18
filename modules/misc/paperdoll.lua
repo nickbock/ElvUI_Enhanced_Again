@@ -234,7 +234,7 @@ function PD:InspectFrame_UpdateTabsComplete()
 end
 
 function PD:InitialUpdatePaperDoll()
-  PD:UnregisterEvent("PLAYER_LOGIN")
+  PD:UnregisterEvent("PLAYER_ENTERING_WORLD")
   LoadAddOn("Blizzard_InspectUI")
   self:BuildInfoText("Character")
   self:BuildInfoText("Inspect")
@@ -281,7 +281,7 @@ function PD:Initialize()
   PD:RegisterEvent("COMBAT_RATING_UPDATE", "UpdatePaperDoll", false)
   PD:RegisterEvent("MASTERY_UPDATE", "UpdatePaperDoll", false)
   --PD:RegisterEvent("GARRISON_MISSION_FINISHED", "firstGarrisonToast", false)
-  PD:RegisterEvent("PLAYER_LOGIN", "InitialUpdatePaperDoll")
+  PD:RegisterEvent("PLAYER_ENTERING_WORLD", "InitialUpdatePaperDoll")
 end
 
 E:RegisterModule(PD:GetName())
