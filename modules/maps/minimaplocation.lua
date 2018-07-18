@@ -1,10 +1,11 @@
 local E, L, V, P, G = unpack(ElvUI); --Inport: Engine, Locales, PrivateDB, ProfileDB, GlobalDB, Localize Underscore
 local M = E:GetModule('Minimap')
 
-local GetPlayerMapPosition = GetPlayerMapPosition
+--local GetPlayerMapPosition = GetPlayerMapPosition
 local init = false
 local cluster, panel, location, xMap, yMap
 local inRestrictedArea = false
+local mapID = C_Map.GetBestMapForUnit("player")
 
 local digits ={
 	[0] = { .5, '%.0f' },
@@ -18,7 +19,10 @@ local function UpdateLocation(self, elapsed)
 	location.elapsed = (location.elapsed or 0) + elapsed
 	if location.elapsed < digits[E.private.general.minimap.locationdigits][1] then return end
 
-	xMap.pos, yMap.pos = GetPlayerMapPosition('player')
+	local mapID = C_Map.GetBestMapForUnit("player")
+	xMap.pos, yMap.pos = C_Map.GetPlayerMapPosition(mapID, "player"):GetXY()
+
+	--xMap.pos, yMap.pos = GetPlayerMapPosition('player')
 	xMap.text:SetFormattedText(digits[E.private.general.minimap.locationdigits][2], xMap.pos * 100)
 	yMap.text:SetFormattedText(digits[E.private.general.minimap.locationdigits][2], yMap.pos * 100)
 
@@ -93,7 +97,8 @@ hooksecurefunc(M, 'Update_ZoneText', function()
 	location.text:SetTextColor(M:GetLocTextColor())
 	location.text:SetText(strsub(GetMinimapZoneText(),1,25))
 
-	local x = GetPlayerMapPosition("player")
+	local mapID = C_Map.GetBestMapForUnit("player")
+	local x = C_Map.GetPlayerMapPosition(mapID, "player"):GetXY()
 	if not x then
 		inRestrictedArea = true
 		xMap.text:SetText("N/A")

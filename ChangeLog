@@ -1,3 +1,13 @@
+3.3.0-beta1
+* Updated for Wow8
+* Updated name to BtS
+* Fixed minimap module
+* Fixed equipment module
+* Fixed bag module
+* Fixed some settings that where note showing anymore
+* Updated LibRangeCheck lib
+
+
 3.2.4-beta2
 * Fix some paperdoll itemlvl bugs.
 * Progression Tooltip - Raid order changed to release order.
@@ -44,7 +54,6 @@ Updated progression for 7.3 (Removed EmN, added Antorus)
 
 3.2.0-beta4
 * Added an option to enable the pre legion tab targeting system. You will find this option in the general ElvUI settings. It applies the "/console TargetNearestUseOld 1" command automatically when you logon.
-
 3.2.0-beta3
 * Itemlevel for twohanded artifact weapons fixed - Thanks q3fuba for the help!
 * When entering the game and a Class Hall mission is complete the alert broke the itemlvl update. This is now fixed.
