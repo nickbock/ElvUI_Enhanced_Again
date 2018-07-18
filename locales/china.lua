@@ -5,7 +5,7 @@ if not L then return end
 -- Translation by: zhouf616
 
 -- Init
-L["ENH_LOGIN_MSG"] = "您正在使用 |cff1784d1ElvUI Enhanced Again|r |cffff8000(BtS)|r version %s%s|r."
+L["ENH_LOGIN_MSG"] = "您正在使用 |cff1784d1ElvUI Enhanced Again|r |cffff8000|r version %s%s|r."
 L["Your version of ElvUI is to old (required v10.17 or higher). Please, download the latest version from tukui.org."] = "您的ElvUI版本过低(需要 v6.51 或更高), 请前往tukui.org下载最新版本."
 
 -- Equipment
