@@ -98,7 +98,9 @@ hooksecurefunc(M, 'Update_ZoneText', function()
 	location.text:SetText(strsub(GetMinimapZoneText(),1,25))
 
 	local mapID = C_Map.GetBestMapForUnit("player")
+	if not mapID then return end
 	local x = C_Map.GetPlayerMapPosition(mapID, "player")
+	
 	if not x then
 		inRestrictedArea = true
 		xMap.text:SetText("N/A")
