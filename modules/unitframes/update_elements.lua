@@ -31,7 +31,10 @@ function UF:UpdateGPS(frame)
 	end
 
 	-- Arbitrary method to determine if we should try to calculate the map position
-	local x, y = GetPlayerMapPosition(gps.unit)
+	local mapID = C_Map.GetBestMapForUnit("player")
+	if not mapID return end
+	local x, y = C_Map.GetPlayerMapPosition(mapID, "player"):GetXY()
+
 	local distance, angle
 	if not (x == 0 and y == 0) then
 		-- Unit is in acceptable range, calculate position fast
