@@ -53,26 +53,6 @@ function UF:Construct_HealGlow(frame)
 	return x
 end
 
---function UF:EnhanceDruidEclipse()
-	-- add eclipse prediction when playing druid
-	--if E.myclass == "DRUID" then
-		--ElvUF_Player.EclipseBar.callbackid = LibBalancePowerTracker:RegisterCallback(function(energy, direction, virtual_energy, virtual_direction, virtual_eclipse)
-			--if (ElvUF_Player.EclipseBar:IsVisible()) then
-				-- improve visibility of eclipse direction indicator
-				--ElvUF_Player.EclipseBar.Text:SetFont([[Interface\AddOns\ElvUI\media\fonts\Continuum_Medium.ttf]], 18, 'OUTLINE')
-				--eclipsedirection[virtual_direction](ElvUF_Player.EclipseBar, direction ~= virtual_direction)
-			--end
-		--end)
-		
-		--ElvUF_Player.EclipseBar.PostUpdatePower = function()
-			--if (ElvUF_Player.EclipseBar:IsVisible()) then
-			--	energy, direction, virtual_energy, virtual_direction, virtual_eclipse = LibBalancePowerTracker:GetEclipseEnergyInfo()
-			--	eclipsedirection[virtual_direction](ElvUF_Player.EclipseBar, direction ~= virtual_direction)	
-			--end
-		--end
-	--end
---end
-
 function UF:AddShouldIAttackIcon(frame)
 	if not frame then return end
 
@@ -143,7 +123,6 @@ function UF:UpdateRoleIconFrame(frame)
 end
 
 function UF:ApplyUnitFrameEnhancements()
-	--UF:ScheduleTimer("EnhanceDruidEclipse", 5)
 	UF:ScheduleTimer("AddShouldIAttackIcon", 8, _G["ElvUF_Target"])
 	UF:ScheduleTimer("Construct_Unit_GPS", 10, _G["ElvUF_Target"], 'target')
 	UF:ScheduleTimer("Construct_Unit_GPS", 12, _G["ElvUF_Focus"], 'focus')
