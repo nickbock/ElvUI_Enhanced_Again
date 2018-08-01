@@ -1,23 +1,9 @@
 local E, L, V, P, G = unpack(ElvUI); --Inport: Engine, Locales, PrivateDB, ProfileDB, GlobalDB, Localize Underscore
 local UF = E:GetModule('UnitFrames')
 
---local eclipsedirection = {
-  --["sun"] = function (frame, change)
-  --	frame.Text:SetText(change and "#>" or ">")
-  --	frame.Text:SetTextColor(cahnge and 1 or .2 , change and 1 or .2, 1, 1) 
-  --end,
-  --["moon"] = function (frame, change)
-  --	frame.Text:SetText(change and "<#" or "<") 
-  --	frame.Text:SetTextColor(1, 1, change and 1 or .3, 1) 
-  --end,
-  --["none"] = function (frame, change)
---		frame.Text:SetText() 
---  end,
---}
-
 function UF:Construct_Unit_GPS(frame, unit)
 	if not frame then return end
-	
+
 	local gps = CreateFrame("Frame", nil, frame)
 	gps:SetTemplate("Transparent")
 	gps:EnableMouse(false)

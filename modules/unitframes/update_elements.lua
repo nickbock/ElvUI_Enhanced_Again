@@ -7,6 +7,7 @@ local pairs, type, select, unpack = pairs, type, select, unpack
 local GetPlayerMapPosition, GetPlayerFacing = GetPlayerMapPosition, GetPlayerFacing
 local unitframeFont
 
+
 local function CalculateCorner(r)
 	return 0.5 + cos(r) / sqrt2, 0.5 + sin(r) / sqrt2;
 end
@@ -31,9 +32,7 @@ function UF:UpdateGPS(frame)
 	end
 
 	-- Arbitrary method to determine if we should try to calculate the map position
-	local mapID = C_Map.GetBestMapForUnit(gps.unit)
-	if not mapID then return end
-	local x, y = C_Map.GetPlayerMapPosition(mapID, gps.unit):GetXY()
+	local x, y = C_Map.GetPlayerMapPosition(C_Map.GetBestMapForUnit(gps.unit), gps.unit):GetXY()
 
 	local distance, angle
 	if not (x == 0 and y == 0) then
