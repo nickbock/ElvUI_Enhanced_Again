@@ -4,10 +4,18 @@ local UF = E:GetModule('UnitFrames');
 hooksecurefunc(UF, "Update_FocusFrame", function(self, frame, db)
 	--GPS
 	local gps = frame.gps
-	local inInstance, _ = IsInInstance()
 	if not gps then return end
 
-	if db.gps.enable and inInstance == false then
+	if gpsRestricted == true then
+		if (gps.timer) then
+			UF:CancelTimer(gps.timer)
+			gps.timer = nil
+		end
+		gps:Hide()
+	return
+	end
+
+	if db.gps.enable then
 		local x, y = UF:GetPositionOffset(db.gps.position)		
 		gps:ClearAllPoints()
 		gps:Point(db.gps.position, frame.Health, db.gps.position, x, y)

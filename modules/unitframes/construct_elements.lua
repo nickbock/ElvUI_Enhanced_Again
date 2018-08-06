@@ -1,5 +1,6 @@
 local E, L, V, P, G = unpack(ElvUI); --Inport: Engine, Locales, PrivateDB, ProfileDB, GlobalDB, Localize Underscore
 local UF = E:GetModule('UnitFrames')
+gpsRestricted = nil
 
 function UF:Construct_Unit_GPS(frame, unit)
 	if not frame then return end
@@ -109,10 +110,21 @@ function UF:UpdateRoleIconFrame(frame)
 end
 
 function UF:ApplyUnitFrameEnhancements()
+	UF:ScheduleTimer("checkGpsRestriction", 6)
 	UF:ScheduleTimer("AddShouldIAttackIcon", 8, _G["ElvUF_Target"])
 	UF:ScheduleTimer("Construct_Unit_GPS", 10, _G["ElvUF_Target"], 'target')
 	UF:ScheduleTimer("Construct_Unit_GPS", 12, _G["ElvUF_Focus"], 'focus')
 	UF:ScheduleTimer("EnhanceUpdateRoleIcon", 15)
+
+	UF:RegisterEvent("ZONE_CHANGED_NEW_AREA", "checkGpsRestriction")
+	UF:RegisterEvent("ZONE_CHANGED", "checkGpsRestriction")
+	UF:RegisterEvent("ZONE_CHANGED_INDOORS", "checkGpsRestriction")
+end
+
+function UF:checkGpsRestriction()
+	gpsRestricted, _ = IsInInstance()
+	UF:CreateAndUpdateUF("target")
+	UF:CreateAndUpdateUF("focus")
 end
 
 local CF = CreateFrame('Frame')
