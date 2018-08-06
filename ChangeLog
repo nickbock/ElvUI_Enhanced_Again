@@ -1,6 +1,7 @@
 3.3.0-beta6
 * Fixed healglow - https://github.com/nickbock/ElvUI_Enhanced_Again/issues/62
 * Fixed GPS erros - https://github.com/nickbock/ElvUI_Enhanced_Again/issues/61
+* Fixed https://github.com/nickbock/ElvUI_Enhanced_Again/issues/55
 * Fixed GPS module as a whole. Now only works in the open world. following Blizzards restrictions.
 
 3.3.0-beta5
