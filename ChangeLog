@@ -1,3 +1,7 @@
+3.3.0-beta7
+* Fixed LUA error in Map Cord - https://github.com/nickbock/ElvUI_Enhanced_Again/issues/67
+* Fixed Auto release in PvP - https://github.com/nickbock/ElvUI_Enhanced_Again/issues/65
+
 3.3.0-beta6
 * Fixed healglow - https://github.com/nickbock/ElvUI_Enhanced_Again/issues/62
 * Fixed GPS erros - https://github.com/nickbock/ElvUI_Enhanced_Again/issues/61
