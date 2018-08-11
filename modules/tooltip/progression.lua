@@ -71,7 +71,7 @@ local function SetProgressionInfo(guid, tt)
 		local updated = 0
 		for i=1, tt:NumLines() do
 			local leftTipText = _G["GameTooltipTextLeft"..i]	
-			for tier = 1, 4 do
+			for tier = 1, #bosses do
 				for level = 1, 4 do
 					if (leftTipText:GetText() and leftTipText:GetText():find(tiers[tier]) and leftTipText:GetText():find(levels[level])) then
 						-- update found tooltip text line
@@ -86,7 +86,7 @@ local function SetProgressionInfo(guid, tt)
 		if updated == 1 then return end
 		-- add progression tooltip line
 		if highest > 0 then tt:AddLine(" ") end
-		for tier = 1, 4 do
+		for tier = 1, #bosses do
 			for level = 1, 4 do
 				tt:AddDoubleLine(progressCache[guid].header[tier][level], progressCache[guid].info[tier][level], nil, nil, nil, 1, 1, 1)
 			end
