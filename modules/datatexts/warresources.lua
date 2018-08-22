@@ -56,7 +56,7 @@ local function OnEnter(self, _, noUpdate)
 	if(numMissions > 0) then
 		tsort(inProgressMissions, sortFunction) --Sort by time left, lowest first
 
-		DT.tooltip:AddLine(WAR_MISSIONS) -- "Class Hall Missions"
+		DT.tooltip:AddLine(WAR_MISSIONS) -- "Missions"
 		firstLine = false
 		for i=1, numMissions do
 			local mission = inProgressMissions[i]
@@ -86,7 +86,7 @@ local function OnEnter(self, _, noUpdate)
 						DT.tooltip:AddLine(" ")
 					end
 					firstLine = false
-					DT.tooltip:AddLine(WAR_FOLLOWERS) -- "Troops"
+					DT.tooltip:AddLine(WAR_FOLLOWERS) -- "Campions and Troops"
 					hasFollowers = true
 				end
 
