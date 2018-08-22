@@ -1,5 +1,6 @@
 3.3.0-beta9
 * Partial Fix for https://github.com/nickbock/ElvUI_Enhanced_Again/issues/74 see issue for details.
+* Extra fixing for garrison icon
 
 3.3.0-beta8
 * Fixed iLvl Datatext hover lua error - https://github.com/nickbock/ElvUI_Enhanced_Again/issues/50
