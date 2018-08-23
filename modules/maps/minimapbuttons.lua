@@ -101,6 +101,7 @@ local function OnLeave(self)
 end
 
 function MB:ResetGarrisonSize()
+	if InCombatLockdown() then return end
 	local garrisonType = C_Garrison.GetLandingPageGarrisonType();
 	if garrisonType == 9 then 
 		GarrisonLandingPageMinimapButton:Size(E.minimapbuttons.db.buttonSize);
