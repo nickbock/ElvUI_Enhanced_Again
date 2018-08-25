@@ -384,13 +384,6 @@ function MB:CreateFrames()
 
 	self:ChangeMouseOverSetting()
 	self:SkinMinimapButtons()
-end
-
-function MB:Initialize()
-	E.minimapbuttons = MB
-	E.minimapbuttons.db = E.private.general.minimapbar
-
-	if not E.minimapbuttons.db.skinButtons then return end
 
 	if E.minimapbuttons.db.mbgarrison then
 		MB:RegisterEvent("ZONE_CHANGED_NEW_AREA", "ResetGarrisonSize");
@@ -398,7 +391,12 @@ function MB:Initialize()
 		MB:RegisterEvent("ZONE_CHANGED_INDOORS", "ResetGarrisonSize");
 		MB:RegisterEvent("GARRISON_SHOW_LANDING_PAGE", "ResetGarrisonSize");
 	end
+end
 
+function MB:Initialize()
+	E.minimapbuttons = MB
+	E.minimapbuttons.db = E.private.general.minimapbar
+	if not E.minimapbuttons.db.skinButtons then return end
 	self:CreateFrames()
 end
 
