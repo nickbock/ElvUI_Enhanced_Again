@@ -40,7 +40,6 @@ function UF:UpdateGPS(frame)
 		return
 	end
 
-	print('update gps')
 	-- Arbitrary method to determine if we should try to calculate the map position
 	local x, y = C_Map.GetPlayerMapPosition(C_Map.GetBestMapForUnit(gps.unit), gps.unit):GetXY()
 
