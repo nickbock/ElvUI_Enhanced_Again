@@ -322,7 +322,6 @@ function MB:UpdateLayout()
 				anchor2 = direction and 'TOPRIGHT' or 'BOTTOMRIGHT'
 				offsetX = (- ((Size + Spacing) * (AnchorY - 1)))
 				offsetY = (Spacing + ((Size + Spacing) * (AnchorX - 1)))
-				print(offsetX)
 			end
 			frame:SetPoint(anchor1, minimapButtonBar, anchor1, offsetX, offsetY)
 			if Maxed then ActualButtons = ButtonsPerRow end
