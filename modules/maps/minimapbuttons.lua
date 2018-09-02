@@ -14,7 +14,6 @@ local ignoreButtons = {
 	"ElvConfigToggle",
 	"ElvUIConfigToggle",
 	"ElvUI_ConsolidatedBuffs",
-	--"GameTimeFrame",
 	"HelpOpenTicketButton",
 	"MMHolder",
 	"DroodFocusMinimapButton",
@@ -33,6 +32,13 @@ local genericIgnores = {
 	"MinimMap",
 	"Spy_MapNoteList_mini",
 	"ZGVMarker",
+	'poiMinimap',
+	'GuildMap3Mini',
+	'LibRockConfig-1.0_MinimapButton',
+	'NauticusMiniIcon',
+	'WestPointer',
+	'Cork',
+	'DugisArrowMinimapPoint',
 }
 
 -- ignore all frames where then name contains this text
@@ -40,6 +46,7 @@ local partialIgnores = {
 	"Node",
 	"Note",
 	"Pin",
+	"POI",
 }
 
 -- whitelist all frames starting with
