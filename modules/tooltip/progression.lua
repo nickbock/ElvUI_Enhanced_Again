@@ -33,7 +33,7 @@ local highest = { 0, 0 }
 local function GetProgression(guid)
 	local kills, complete, pos = 0, false, 0
 	local statFunc = guid == playerGUID and GetStatistic or GetComparisonStatistic
-	
+
 	for tier = 1, #bosses do
 		progressCache[guid].header[tier] = {}
 		progressCache[guid].info[tier] = {}
@@ -109,8 +109,10 @@ end
 hooksecurefunc(TT, 'ShowInspectInfo', function(self, tt, unit, level, r, g, b, numTries)
 	if InCombatLockdown() then return end
 	if not E.db.tooltip.progressInfo then return end
-	if not level or level < MAX_PLAYER_LEVEL then return end
 	if not (unit and CanInspect(unit)) then return end
+	local level = UnitLevel(unit)
+	if not level or level < MAX_PLAYER_LEVEL then return end
+
 	
 	local guid = UnitGUID(unit)
 	if not progressCache[guid] or (GetTime() - progressCache[guid].timer) > 600 then
