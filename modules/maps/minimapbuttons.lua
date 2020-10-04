@@ -212,7 +212,7 @@ function MB:SkinButton(frame)
 				end
 			end
 		end
-		frame:SetTemplate("Tranparent")
+		--frame:SetTemplate("Transparent")
 
 		tinsert(moveButtons, name)
 		frame.isSkinned = true
@@ -390,7 +390,7 @@ function MB:StartSkinning()
 end
 
 function MB:CreateFrames()
-	minimapButtonBarAnchor = CreateFrame("Frame", "MinimapButtonBarAnchor", E.UIParent)
+	minimapButtonBarAnchor = CreateFrame("Frame", "MinimapButtonBarAnchor", E.UIParent, 'BackdropTemplate')
 
 	minimapButtonBarAnchor:Point("TOPRIGHT", RightMiniPanel, "BOTTOMRIGHT", 0, -2)
 
@@ -399,7 +399,7 @@ function MB:CreateFrames()
 	
 	E:CreateMover(minimapButtonBarAnchor, "MinimapButtonAnchor", L["Minimap Button Bar"])
 
-	minimapButtonBar = CreateFrame("Frame", "MinimapButtonBar", E.UIParent)
+	minimapButtonBar = CreateFrame("Frame", "MinimapButtonBar", E.UIParent, 'BackdropTemplate')
 	minimapButtonBar:SetFrameStrata('LOW')
 	minimapButtonBar:CreateBackdrop('Transparent')
 	minimapButtonBar:ClearAllPoints()

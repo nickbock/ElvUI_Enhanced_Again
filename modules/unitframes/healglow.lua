@@ -1,4 +1,4 @@
-﻿local E, L, V, P, G = unpack(ElvUI); --Inport: Engine, Locales, PrivateDB, ProfileDB, GlobalDB, Localize Underscore
+local E, L, V, P, G = unpack(ElvUI); --Inport: Engine, Locales, PrivateDB, ProfileDB, GlobalDB, Localize Underscore
 local HG = E:NewModule('HealGlow', 'AceEvent-3.0')
 local UF = E:GetModule('UnitFrames')
 

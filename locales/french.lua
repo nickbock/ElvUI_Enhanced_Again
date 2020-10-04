@@ -1,4 +1,4 @@
-﻿-- French localization file for frFR.
+-- French localization file for frFR.
 local AceLocale = LibStub:GetLibrary("AceLocale-3.0");
 local L = AceLocale:NewLocale("ElvUI", "frFR");
 if not L then return; end
@@ -7,7 +7,7 @@ if not L then return; end
 
 -- Init
 L["ENH_LOGIN_MSG"] = "Vous utilisez |cff1784d1ElvUI Enhanced Again|r |cffff8000)|r version %s%s|r."
-L["Your version of ElvUI is to old (required 11.36 or higher). Please, download the latest version from tukui.org."] = "Votre version d'ElvUI est trop ancienne (requiert v6.51 ou plus). Merci de télécharger une version plus récente sur tukui.org."
+L["Your version of ElvUI is to old (required 11.42 or higher). Please, download the latest version from tukui.org."] = "Votre version d'ElvUI est trop ancienne (requiert v6.51 ou plus). Merci de télécharger une version plus récente sur tukui.org."
 
 -- Equipment
 L["Equipment"] = "Équipement"

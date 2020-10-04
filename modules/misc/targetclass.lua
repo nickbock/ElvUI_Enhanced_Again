@@ -33,7 +33,7 @@ function TC:ToggleSettings()
 end
 
 function TC:Initialize()
-	frame = CreateFrame("Frame", "TargetClass", E.UIParent)
+	frame = CreateFrame("Frame", "TargetClass", E.UIParent, "BackdropTemplate")
 	frame:SetFrameLevel(12)
 	frame.Texture = frame:CreateTexture(nil, "ARTWORK")
 	frame.Texture:SetAllPoints()

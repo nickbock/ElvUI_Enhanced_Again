@@ -5,7 +5,7 @@ gpsRestricted = nil
 function UF:Construct_Unit_GPS(frame, unit)
 	if not frame then return end
 
-	local gps = CreateFrame("Frame", nil, frame)
+	local gps = CreateFrame("Frame", nil, frame, "BackdropTemplate")
 	gps:SetTemplate("Transparent")
 	gps:EnableMouse(false)
 	gps:SetFrameLevel(frame:GetFrameLevel() + 10)
@@ -43,7 +43,7 @@ end
 function UF:AddShouldIAttackIcon(frame)
 	if not frame then return end
 
-	local tag = CreateFrame("Frame", nil, frame)
+	local tag = CreateFrame("Frame", nil, frame, "BackdropTemplate")
 	tag:SetFrameLevel(frame:GetFrameLevel() + 8)
 	tag:EnableMouse(false)
 	
@@ -103,7 +103,7 @@ function UF:UpdateRoleIconFrame(frame)
 	
 	if E.db.unitframe.hideroleincombat then
 		local p = frame.LFDRole:GetParent()
-		local f = CreateFrame('Frame', nil, p)
+		local f = CreateFrame('Frame', nil, p, "BackdropTemplate")
 		frame.LFDRole:SetParent(f)
 		RegisterStateDriver(f, 'visibility', '[combat]hide;show')
 	end

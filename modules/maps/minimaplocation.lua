@@ -56,12 +56,12 @@ end
 local function CreateEnhancedMaplocation()
 	cluster = _G['MinimapCluster']
 
-	panel = CreateFrame('Frame', 'EnhancedLocationPanel', _G['MinimapCluster'])
+	panel = CreateFrame('Frame', 'EnhancedLocationPanel', _G['MinimapCluster'], 'BackdropTemplate')
 	panel:SetFrameStrata("BACKGROUND")
 	panel:Point("CENTER", E.UIParent, "CENTER", 0, 0)
 	panel:Size(206, 22)
 
-	xMap = CreateFrame('Frame', "MapCoordinatesX", panel)
+	xMap = CreateFrame('Frame', "MapCoordinatesX", panel, 'BackdropTemplate')
 	xMap:SetTemplate('Transparent')
 	xMap:Point('LEFT', panel, 'LEFT', 2, 0)
 	xMap:Size(40, 22)
@@ -70,7 +70,7 @@ local function CreateEnhancedMaplocation()
 	xMap.text:FontTemplate(E.media.font, 12, "OUTLINE")
 	xMap.text:SetAllPoints(xMap)
 
-	location = CreateFrame('Frame', "EnhancedLocationText", panel)
+	location = CreateFrame('Frame', "EnhancedLocationText", panel, 'BackdropTemplate')
 	location:SetTemplate('Transparent')
 	location:Point('CENTER', panel, 'CENTER', 0, 0)
 	location:Size(126, 22)
@@ -79,7 +79,7 @@ local function CreateEnhancedMaplocation()
 	location.text:FontTemplate(E.media.font, 12, "OUTLINE")
 	location.text:SetAllPoints(location)
 
-	yMap = CreateFrame('Frame', "MapCoordinatesY", panel)
+	yMap = CreateFrame('Frame', "MapCoordinatesY", panel, 'BackdropTemplate')
 	yMap:SetTemplate('Transparent')
 	yMap:Point('RIGHT', panel, 'RIGHT', -2.5, 0)
 	yMap:Size(40, 22)
@@ -118,8 +118,8 @@ local function ShowMinimap()
 end
 
 hooksecurefunc(M, 'Update_ZoneText', function()
-	location.text:SetTextColor(M:GetLocTextColor())
 	location.text:SetText(strsub(GetMinimapZoneText(),1,25))
+  location.text:SetTextColor(M:GetLocTextColor())
 
 	getPos(1)
 
@@ -129,15 +129,15 @@ hooksecurefunc(M, 'UpdateSettings', function()
 	if not E.private.general.minimap.enable then return end
 
 	if not init then
-		init = true
+    init = true
 		CreateEnhancedMaplocation()
 	end
 	
 	if E.private.general.minimap.hideincombat then
-		M:RegisterEvent("PLAYER_REGEN_DISABLED", HideMinimap)	
+		M:RegisterEvent("PLAYER_REGEN_DISABLED", HideMinimap)
 		M:RegisterEvent("PLAYER_REGEN_ENABLED", ShowMinimap)
 	else
-		M:UnregisterEvent("PLAYER_REGEN_DISABLED")	
+		M:UnregisterEvent("PLAYER_REGEN_DISABLED")
 		M:UnregisterEvent("PLAYER_REGEN_ENABLED")
 	end
 

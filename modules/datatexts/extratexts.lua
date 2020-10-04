@@ -212,7 +212,7 @@ function EDT:OnInitialize()
 		local actionbar = _G[("ElvUI_Bar%d"):format(k)]
 		local panelname = ('Actionbar%dDataPanel'):format(k)
 
-		local panel = CreateFrame('Frame', panelname, E.UIParent)
+		local panel = CreateFrame('Frame', panelname, E.UIParent, "BackdropTemplate")
 		panel.db = E.db.actionbar[("bar%d"):format(k)]
 
 		local spacer = panel.db.backdrop and 0 or SPACING
@@ -231,7 +231,7 @@ function EDT:OnInitialize()
 		end
 	end)
 
-	menuFrame = CreateFrame("Frame", "EDTMenuFrame", E.UIParent, "UIDropDownMenuTemplate")
+	menuFrame = CreateFrame("Frame", "EDTMenuFrame", E.UIParent, "UIDropDownMenuTemplate, BackdropTemplate")
 	menuFrame:SetTemplate("Default")
 
 	-- extend datatext click function

@@ -315,7 +315,7 @@ function F:UpdateLayout()
 end
 
 function F:CreateFarmButton(index, owner, buttonType, name, texture, allowDrop, showCount)
-	local button = CreateFrame("Button", ("FarmerButton%d"):format(index), owner, "SecureActionButtonTemplate")
+	local button = CreateFrame("Button", ("FarmerButton%d"):format(index), owner, "SecureActionButtonTemplate, BackdropTemplate")
 	button:StyleButton();
 	button:SetTemplate('Default', true);
 	button:SetNormalTexture(nil);
@@ -338,7 +338,7 @@ function F:CreateFarmButton(index, owner, buttonType, name, texture, allowDrop, 
 		button.text:SetPoint("BOTTOMRIGHT", button, 1, 2)	
 	end
 
-	button.cooldown = CreateFrame("Cooldown", ("FarmerButton%dCooldown"):format(index), button)
+	button.cooldown = CreateFrame("Cooldown", ("FarmerButton%dCooldown"):format(index), button, "BackdropTemplate")
 	button.cooldown:SetAllPoints(button)
 
 	button:SetScript("OnEnter", onEnter)
@@ -350,21 +350,21 @@ end
 
 
 function F:CreateFrames()
-	farmSeedBarAnchor = CreateFrame("Frame", "FarmSeedBarAnchor", E.UIParent)
+	farmSeedBarAnchor = CreateFrame("Frame", "FarmSeedBarAnchor", E.UIParent, "BackdropTemplate")
 	farmSeedBarAnchor:Point("LEFT", E.UIParent, "LEFT", 4, -200)
 	farmSeedBarAnchor:Size(96, 320)
 	farmSeedBarAnchor:SetFrameStrata("BACKGROUND")
 
 	E:CreateMover(farmSeedBarAnchor, "FarmSeedAnchor", L['Farmer Seed Bar'])
 	
-	farmToolBarAnchor = CreateFrame("Frame", "FarmToolBarAnchor", E.UIParent)
+	farmToolBarAnchor = CreateFrame("Frame", "FarmToolBarAnchor", E.UIParent, "BackdropTemplate")
 	farmToolBarAnchor:Point("BOTTOMLEFT", farmSeedBarAnchor, "TOPLEFT", 0, 4)
 	farmToolBarAnchor:Size(128, 38)
 	farmToolBarAnchor:SetFrameStrata("BACKGROUND")
 	
 	E:CreateMover(farmToolBarAnchor, "FarmToolAnchor", L['Farmer Tools Bar'])
 	
-	farmPortalBarAnchor = CreateFrame("Frame", "FarmPortalBarAnchor", E.UIParent)
+	farmPortalBarAnchor = CreateFrame("Frame", "FarmPortalBarAnchor", E.UIParent, "BackdropTemplate")
 	farmPortalBarAnchor:Point("BOTTOMLEFT", farmToolBarAnchor, "TOPLEFT", 0, 4)
 	farmPortalBarAnchor:Size(128, 38)
 	farmPortalBarAnchor:SetFrameStrata("BACKGROUND")
@@ -384,7 +384,7 @@ function F:CreateFrames()
 	end
 
 	for i = 1, NUM_SEED_BARS do
-		local seedBar = CreateFrame("Frame", ("FarmSeedBar%d"):format(i), UIParent)
+		local seedBar = CreateFrame("Frame", ("FarmSeedBar%d"):format(i), UIParent, "BackdropTemplate")
 		seedBar:SetFrameStrata("BACKGROUND")
 		seedBar:SetPoint("CENTER", farmSeedBarAnchor, "CENTER", 0, 0)
 
@@ -398,14 +398,14 @@ function F:CreateFrames()
 		end
 	end
 	
-	local toolBar = CreateFrame("Frame", "FarmToolBar", UIParent)	
+	local toolBar = CreateFrame("Frame", "FarmToolBar", UIParent, "BackdropTemplate")
 	toolBar:SetFrameStrata("BACKGROUND")
 	toolBar:SetPoint("CENTER", farmToolBarAnchor, "CENTER", 0, 0)
 	for k, v in pairs(tools) do
 		tinsert(toolButtons, F:CreateFarmButton(k, toolBar, "item", v[2], v[11], true, false))
 	end
 	
-	local portalBar = CreateFrame("Frame", "FarmPortalBar", UIParent)
+	local portalBar = CreateFrame("Frame", "FarmPortalBar", UIParent, "BackdropTemplate")
 	portalBar:SetFrameStrata("BACKGROUND")
 	portalBar:SetPoint("CENTER", farmPortalBarAnchor, "CENTER", 0, 0)
 	local playerFaction = UnitFactionGroup('player')
