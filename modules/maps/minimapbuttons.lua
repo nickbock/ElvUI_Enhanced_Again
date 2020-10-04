@@ -94,17 +94,17 @@ end
 local function OnEnter(self)
 	if not E.minimapbuttons.db.mouseover or E.minimapbuttons.db.skinStyle == 'NOANCHOR' then return end
 	UIFrameFadeIn(MinimapButtonBar, 0.2, MinimapButtonBar:GetAlpha(), 1)
-	if self:GetName() ~= 'MinimapButtonBar' then
+	--[[if self:GetName() ~= 'MinimapButtonBar' then
 		self:SetBackdropBorderColor(.7, .7, 0)
-	end
+	end]]
 end
 
 local function OnLeave(self)
 	if not E.minimapbuttons.db.mouseover or E.minimapbuttons.db.skinStyle == 'NOANCHOR' then return end
 	UIFrameFadeOut(MinimapButtonBar, 0.2, MinimapButtonBar:GetAlpha(), 0)
-	if self:GetName() ~= 'MinimapButtonBar' then
+	--[[if self:GetName() ~= 'MinimapButtonBar' then
 		self:SetBackdropBorderColor(0, 0, 0)
-	end
+	end]]
 end
 
 function MB:ResetGarrisonSize()
