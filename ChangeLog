@@ -1,7 +1,4 @@
-3.5.0-alpha2
-* forgot the commit TOC and changelog
-
-3.5.0-alpha1
+3.5.0
 * Ready for 9.0
 * Fix minimapbuttonbar for 9.0
 * Fix raidmarkerbar for 9.0
