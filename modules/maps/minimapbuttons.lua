@@ -286,7 +286,7 @@ function MB:UpdateLayout()
 			frame:SetScript("OnDragStop", nil)
 			
 			frame:ClearAllPoints()
-			frame:SetFrameStrata("LOW")
+			frame:SetFrameStrata("HIGH")
 			frame:SetFrameLevel(20)
 			frame:Size(E.minimapbuttons.db.buttonSize)
 
@@ -369,7 +369,7 @@ function MB:CreateFrames()
 	E:CreateMover(minimapButtonBarAnchor, "MinimapButtonAnchor", L["Minimap Button Bar"])
 
 	minimapButtonBar = CreateFrame("Frame", "MinimapButtonBar", E.UIParent, 'BackdropTemplate')
-	minimapButtonBar:SetFrameStrata('LOW')
+	minimapButtonBar:SetFrameStrata('HIGH')
 	minimapButtonBar:CreateBackdrop('Transparent')
 	minimapButtonBar:ClearAllPoints()
 	minimapButtonBar:SetPoint("CENTER", minimapButtonBarAnchor, "CENTER", 0, 0)

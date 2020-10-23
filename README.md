@@ -1,16 +1,18 @@
 # Important Notice
-You need atleast ElvUI version 12.00 or higher for the addon to work.
+### **!!!The latest version is a rewrite of this add-on, not all features will be ported. If you use v4.0.0-beta old settings will be lost.!!!**
+
+You need atleast ElvUI version 12 or higher for the add-on to work.
 
 # General Information
-This is a continuation of ElvUI Enhanced and a more lite weight version. Only essesential features are added and features that ElvUI can do it self are removed.
+This is a continuation of ElvUI Enhanced and a more lite weight version. Only essential features are added and features that ElvUI can do it self are removed.
 
-If you find any bugs or features that are not working please let me know by creating a ticket: https://github.com/nickbock/ElvUI_Enhanced_Again/issues
+If you find any bugs or features that are not working please let me know by creating a ticket: [https://github.com/nickbock/ElvUI_Enhanced_Again/issues](https://github.com/nickbock/ElvUI_Enhanced_Again/issues "")
 
-If you want to contribute you can find the source on github: https://github.com/nickbock/ElvUI_Enhanced_Again
+If you want to contribute you can find the source on github: [https://github.com/nickbock/ElvUI_Enhanced_Again](https://github.com/nickbock/ElvUI_Enhanced_Again "")
 
 # Whats New
 - Moved all the setting to own settings section. This way it more easier to find settings and to change them how you want.
-- Rewrite of plugin initialisation.
+- Rewrite of plugin initialization.
 - Settings moved to profiles instead on a per character base.
 - All features are disabled by default.
 
@@ -28,7 +30,9 @@ Please Note: This add-on will not function without ElvUI installed. You can down
 - Player Raid Progression information on mouse-over tool tip (requires holding 'shift' key)
 
 # Removed Features
-You can make a request for ony of the old features on: github link. If enough people want it, I will consider adding the feature.
+You can make a request for only of the old features on: [https://github.com/nickbock/ElvUI_Enhanced_Again](https://github.com/nickbock/ElvUI_Enhanced_Again ""). 
+If enough people want it, I will consider adding the feature.
+
 ## Mini map
 - Hide mini map during combat (disabled by default).
 ## Automation:
