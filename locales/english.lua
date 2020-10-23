@@ -6,7 +6,10 @@ if not L then return end
 
 -- Init
 L["ENH_LOGIN_MSG"] = "You are using |cff1784d1ElvUI Enhanced Again|r |cffff8000(Shadowlands)|r version %s%s|r."
-L["Your version of ElvUI is to old (required v11.52 or higher). Please, download the latest version from tukui.org."] = true
+L["MSG_EEL_ELV_OUTDATED"] = "Your version of ElvUI is older than recommended to use with |cff1784d1ElvUI Enhanced Lite|r |cffff8000(Shadowlands)|r. Your version is |cff1784d1%.2f|r (recommended is |cff1784d1%.2f|r). Please update your ElvUI."
+L["ElvUI Enhanced Lite"] = true
+
+--OLD
 
 -- Equipment
 L["Equipment"] = true
@@ -66,6 +69,7 @@ L['Show attack icon for units that are not tapped by you or your group, but stil
 L['Show class icon for units.'] = true
 
 -- Minimap Location
+L["MiniMap Coordinates"] = true
 L['Above Minimap'] = true
 L['Location Digits'] = true
 L['Number of digits for map location.'] = true
