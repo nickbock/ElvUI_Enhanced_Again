@@ -151,7 +151,7 @@ function RM:Initialize()
 	
 	self.frame.backdrop:SetAllPoints()
 
-	E:CreateMover(self.frame, "RaidMarkerBarAnchor", L['Raid Marker Bar'])
+	E:CreateMover(self.frame, "RaidMarkerBarAnchor", L['Raid Marker Bar'], nil, nil, nil, "ALL,ACTIONBARS,ELVUIEHANCED")
 	
 	--self:RegisterEvent("GROUP_ROSTER_UPDATE", "ToggleSettings")
 	self:CreateButtons()

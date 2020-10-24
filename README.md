@@ -15,6 +15,7 @@ If you want to contribute you can find the source on github: [https://github.com
 - Rewrite of plugin initialization.
 - Settings moved to profiles instead on a per character base.
 - All features are disabled by default.
+- Own ElvUI Config group for easy moving of Minimap Button Bar and RaidMarker Bar
 
 Please Note: This add-on will not function without ElvUI installed. You can download it at http://www.tukui.org.
 # Features

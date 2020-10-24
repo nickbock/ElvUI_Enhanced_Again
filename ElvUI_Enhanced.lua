@@ -50,8 +50,8 @@ if EEL.elvV < 12 or (EEL.elvV < EEL.elvR) then
 end
 
 function EEL:ConfigCat() 
-	tinsert(E.ConfigModeLayouts, #(E.ConfigModeLayouts)+1, "ElvUI Enhanced Lite");
-	E.ConfigModeLocalizedStrings["ElvUI Enhanced Lite"] = L["ElvUI Enhanced Lite"]
+	tinsert(E.ConfigModeLayouts, #(E.ConfigModeLayouts)+1, "ELVUIEHANCED");
+	E.ConfigModeLocalizedStrings["ELVUIEHANCED"] = L["ElvUI Enhanced Again"]
 end
 
 function EEL:Initialize()

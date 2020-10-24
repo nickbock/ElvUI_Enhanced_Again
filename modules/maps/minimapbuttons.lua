@@ -208,7 +208,7 @@ function MB:UpdateSkinStyle()
 			doreload = 1
 		end
 		if doreload == 1 then
-			E:StaticPopup_Show("PRIVATE_RL")
+			E:StaticPopup_Show("CONFIG_RL")
 		else 
 			self:UpdateLayout()
 		end
@@ -362,15 +362,16 @@ end
 
 function MB:CreateFrames()
 	minimapButtonBarAnchor = CreateFrame("Frame", "MinimapButtonBarAnchor", E.UIParent, 'BackdropTemplate')
-	minimapButtonBarAnchor:Point("TOPRIGHT", RightMiniPanel, "BOTTOMRIGHT", 0, -2)
+	minimapButtonBarAnchor:Point('BOTTOM', Minimap, 'BOTTOMRIGHT', 0, -E.mult -54)
 	minimapButtonBarAnchor:Size(200, 32)
 	minimapButtonBarAnchor:SetFrameStrata("BACKGROUND")
-	
-	E:CreateMover(minimapButtonBarAnchor, "MinimapButtonAnchor", L["Minimap Button Bar"])
+
+	E:CreateMover(minimapButtonBarAnchor, "MinimapButtonAnchor", L["Minimap Button Bar"], nil, nil, nil, "ALL,ACTIONBARS,ELVUIEHANCED")
 
 	minimapButtonBar = CreateFrame("Frame", "MinimapButtonBar", E.UIParent, 'BackdropTemplate')
-	minimapButtonBar:SetFrameStrata('HIGH')
+	minimapButtonBar:SetFrameStrata('MEDIUM')
 	minimapButtonBar:CreateBackdrop('Transparent')
+	minimapButtonBar:SetFrameLevel(2)
 	minimapButtonBar:ClearAllPoints()
 	minimapButtonBar:SetPoint("CENTER", minimapButtonBarAnchor, "CENTER", 0, 0)
 	minimapButtonBar:SetScript("OnEnter", OnEnter)
