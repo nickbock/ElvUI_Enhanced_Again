@@ -16,6 +16,12 @@ If you want to contribute you can find the source on github: [https://github.com
 - Settings moved to profiles instead on a per character base.
 - All features are disabled by default.
 - Own ElvUI Config group for easy moving of Minimap Button Bar and RaidMarker Bar
+- Updated progression tooltip
+
+## ToDo
+- Cleanup old files.
+- Updated and cleanup locales.
+- Maybe add some more (old) features.
 
 Please Note: This add-on will not function without ElvUI installed. You can download it at http://www.tukui.org.
 # Features
@@ -60,8 +66,3 @@ If enough people want it, I will consider adding the feature.
 - Hide role icons (healer/tank/damage) on unit frames while in combat.
 - Class Icons for the target frame.
 
-## ToDo
-- Cleanup old files.
-- Updated and cleanup locales.
-- Add progression tooltip.
-- Maybe add some more features.
