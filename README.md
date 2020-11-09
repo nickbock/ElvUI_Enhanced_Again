@@ -15,8 +15,9 @@ If you want to contribute you can find the source on github: [https://github.com
 - Rewrite of plugin initialization.
 - Settings moved to profiles instead on a per character base.
 - All features are disabled by default.
-- Own ElvUI Config group for easy moving of Minimap Button Bar and RaidMarker Bar
+- Own ElvUI Mover group for easy moving of Minimap Button Bar and RaidMarker Bar
 - Updated progression tooltip
+- Readded Equipment Manager
 - Readded range datatext
 
 ## ToDo
@@ -26,42 +27,42 @@ If you want to contribute you can find the source on github: [https://github.com
 
 Please Note: This add-on will not function without ElvUI installed. You can download it at http://www.tukui.org.
 # Features
-## Mini map
+### Mini map
 - Location information above minimap with coordinates.
 - Mini map buttons can be skinned and placed on their own bar that can be moved around.
-## Raiding
+### Raiding
 - Raid Marker Bar for quickly placing target and world markers.
-## Equipment Manager
+### Equipment Manager
 - Automatic Equipment switching on spec change
 - Automatic Equipment switching when in battleground
-## Tooltip
+### Tooltip
 - Player Raid Progression information on mouse-over tool tip (requires holding 'shift' key)
+### Datatext
+- Show the range of a target in a datatext
 
 # Removed Features
 You can make a request for only of the old features on: [https://github.com/nickbock/ElvUI_Enhanced_Again](https://github.com/nickbock/ElvUI_Enhanced_Again ""). 
 If enough people want it, I will consider adding the feature.
 
-## Mini map
+### Mini map
 - Hide mini map during combat (disabled by default).
-## Automation:
+### Automation:
 - Auto release in battleground after player dies.
 - Automatic changing of the watched faction on your reputation bar to the faction you got reputation points for.
 - Automatic role detection for battleground and party/raid groups.
 - Automatic selection of highest vendor value quest rewards (you can still pick another if you like).
-## Data Texts
-- Target Range data text module displaying the range to your currently selected target.
+### Data Texts
 - Item Level data text for a quick glance at your currently equipped item levels.
 - Quick datatext configuration by CTRL-ALT-RightClick on any datatext panel.
-## Equipment
-- Equipment Manager with automatic changing of equipment set when changing specialization or entering a battleground / arena.
+### Equipment
 - Equipment Set Overlay for your bag and bank slots showing the equipment sets for an item.
-## Visualizations
+### Visualizations
 - Adjustable transparency for the ElvUI interface movers.
 - Attack icon on target frame when target is not tapped by you or your group, but you still get credit for the kill when attacking.
 - Improved visibility for disconnected party or raid member (lightning icon in frame).
 - Item levels and durability information on the character screen.
 - Watchframe visibility configuration, based on city (resting), pvp, arena, party or raid.
-## Unit Frames
+### Unit Frames
 - GPS Locator for target and focus frame, showing direction and range to party or raid member.
 - Heal Glow: Direct AoE heals will let the unit frames of the affected party / raid members glow for the defined time period.
 - Hide role icons (healer/tank/damage) on unit frames while in combat.
