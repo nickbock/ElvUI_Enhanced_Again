@@ -17,6 +17,7 @@ If you want to contribute you can find the source on github: [https://github.com
 - All features are disabled by default.
 - Own ElvUI Config group for easy moving of Minimap Button Bar and RaidMarker Bar
 - Updated progression tooltip
+- Readded range datatext
 
 ## ToDo
 - Cleanup old files.
