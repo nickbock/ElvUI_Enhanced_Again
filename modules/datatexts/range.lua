@@ -1,3 +1,10 @@
+------------------------------------------------------------------
+-- This feature was originally created by Darth and Repooc of S&L.
+-- Credits: Darth Predator and Repooc.
+-- ElvUI Shadow & Light : https://www.tukui.org/addons.php?id=38
+-- Later modified by me for this addon
+------------------------------------------------------------------
+
 local E, L, V, P, G = unpack(ElvUI); --Inport: Engine, Locales, PrivateDB, ProfileDB, GlobalDB, Localize Underscore
 local DT = E:GetModule('DataTexts')
 local RC = LibStub("LibRangeCheck-2.0")

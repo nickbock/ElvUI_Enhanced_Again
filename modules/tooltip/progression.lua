@@ -1,3 +1,10 @@
+------------------------------------------------------------------
+-- This feature was originally created by Darth and Repooc of S&L.
+-- Credits: Darth Predator and Repooc.
+-- ElvUI Shadow & Light : https://www.tukui.org/addons.php?id=38
+-- Later modified by me for this addon
+------------------------------------------------------------------
+
 local E, L, V, P, G = unpack(ElvUI); --Import: Engine, Locales, PrivateDB, ProfileDB, GlobalDB, Localize Underscore
 local PT = E:NewModule("ProgressTooltip", "AceHook-3.0", "AceEvent-3.0")
 local TT = E:GetModule('Tooltip')
