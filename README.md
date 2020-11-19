@@ -19,6 +19,7 @@ If you want to contribute you can find the source on github: [https://github.com
 - Updated progression tooltip
 - Readded Equipment Manager
 - Readded range datatext
+- Readded Equipment bag overlay
 
 ## ToDo
 - Cleanup old files.
@@ -35,6 +36,7 @@ Please Note: This add-on will not function without ElvUI installed. You can down
 ### Equipment Manager
 - Automatic Equipment switching on spec change
 - Automatic Equipment switching when in battleground
+- Equipment Set Overlay for your bag and bank slots showing the equipment sets for an item.
 ### Tooltip
 - Player Raid Progression information on mouse-over tool tip (requires holding 'shift' key)
 ### Datatext
@@ -54,8 +56,6 @@ If enough people want it, I will consider adding the feature.
 ### Data Texts
 - Item Level data text for a quick glance at your currently equipped item levels.
 - Quick datatext configuration by CTRL-ALT-RightClick on any datatext panel.
-### Equipment
-- Equipment Set Overlay for your bag and bank slots showing the equipment sets for an item.
 ### Visualizations
 - Adjustable transparency for the ElvUI interface movers.
 - Attack icon on target frame when target is not tapped by you or your group, but you still get credit for the kill when attacking.
