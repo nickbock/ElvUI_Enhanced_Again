@@ -1,7 +1,5 @@
 ﻿-- English localization file for enUS and enGB.
-local E = unpack(ElvUI); --Import: Engine, Locales, PrivateDB, ProfileDB, GlobalDB
-local L = E.Libs.ACL:NewLocale("ElvUI", "enUS", true, true)
-
+local L = ElvUI[1].Libs.ACL:NewLocale("ElvUI", "enUS")
 if not L then return end
 
 -- Init
