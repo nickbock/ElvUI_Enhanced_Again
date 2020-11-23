@@ -17,16 +17,12 @@ V["eel"]["equipment"] = {
 	['battleground'] = {
 		['enable'] = false,
 	},
+}
+
+P["eel"]["equipment"] = {
 	['setoverlay'] = {
 		['enable'] = false,
 	},
-	['durability'] = {
-		enable = false,
-		onlydamaged = true,
-	},
-	['itemlevel'] = {
-		enable = false,
-	}
 }
 
 local function GetAllEquipmentSets()
@@ -182,8 +178,8 @@ local function ConfigTable()
 				type = 'group',
 				name = L['Equipment Set Overlay'],
 				order = 8,
-				get = function(info) return E.private.eel.equipment.setoverlay[ info[#info] ] end,
-				set = function(info, value) E.private.eel.equipment.setoverlay[ info[#info] ] = value end,
+				get = function(info) return E.db.eel.equipment.setoverlay[ info[#info] ] end,
+				set = function(info, value) E.db.eel.equipment.setoverlay[ info[#info] ] = value end,
 				args = {
 					header1 = {
 						order = 1,
@@ -209,8 +205,8 @@ local function ConfigTable()
 						name = L["Enable"],
 						desc = L['Show the associated equipment sets for the items in your bags (or bank).'],
 						disabled = function() return not E.private.bags.enable end,
-						get = function(info) return E.private.eel.equipment.setoverlay.enable end,
-						set = function(info, value) E.private.eel.equipment.setoverlay.enable = value; E:StaticPopup_Show("CONFIG_RL") end,
+						get = function(info) return E.db.eel.equipment.setoverlay.enable end,
+						set = function(info, value) E.db.eel.equipment.setoverlay.enable = value; E:StaticPopup_Show("CONFIG_RL") end,
 					}
 				}
 			},

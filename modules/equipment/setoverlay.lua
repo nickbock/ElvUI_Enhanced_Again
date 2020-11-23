@@ -110,7 +110,7 @@ function SO:ToggleSettings()
 		self:CancelTimer(updateTimer)
 	end
 
-	if E.private.eel.equipment.setoverlay.enable then
+	if E.db.eel.equipment.setoverlay.enable then
 		self:RegisterEvent("EQUIPMENT_SETS_CHANGED", "DelayUpdateBagInformation")
 		self:RegisterEvent("BAG_UPDATE", "DelayUpdateBagInformation")
 		SO:UpdateBagInformation()
@@ -123,7 +123,7 @@ end
 
 function SO:Initialize()
 	if not E.private.bags.enable then return end
-	if not E.private.eel.equipment.setoverlay.enable then return end
+	if not E.db.eel.equipment.setoverlay.enable then return end
 
 	tinsert(containers, _G["ElvUI_ContainerFrame"])	
 	self:SecureHook(B, "OpenBank", function()
