@@ -4,4 +4,5 @@
 	<Include file="equipment\load_equipment.xml"/>
 	<Include file="tooltip\load_tooltip.xml"/>
 	<Include file="datatexts\load_datatexts.xml"/>
+	<Include file="paperdoll\load_paperdoll.xml"/>
 </Ui>

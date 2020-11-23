@@ -66,7 +66,7 @@ local function ConfigTable()
                     enable = {
                         order = 1,
                         type = 'toggle',
-                        name = ENABLE,
+                        name = L["Enable"],
                         desc = L["Show minimap locatation and cords on top of the minimap"],
                         get = function(info) return E.db.eel.minimap.minimapcords[ info[#info] ] end,
 				        set = function(info, value) E.db.eel.minimap.minimapcords[ info[#info] ] = value; setMinimapAbove() end
@@ -93,7 +93,7 @@ local function ConfigTable()
                     enable = {
                         order = 1,
                         type = 'toggle',
-                        name = L['Skin Buttons'],
+                        name = L["Enable"],
                         desc = L['Skins the minimap buttons in ElvUI style.'],
                         set = function(info, value) E.db.eel.minimap.minimapbar.enable = value; E:StaticPopup_Show("CONFIG_RL") end,					
                     },

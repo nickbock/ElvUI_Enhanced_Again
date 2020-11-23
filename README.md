@@ -59,7 +59,6 @@ If enough people want it, I will consider adding the feature.
 ### Data Texts
 - Item Level data text for a quick glance at your currently equipped item levels.
 - Quick datatext configuration by CTRL-ALT-RightClick on any datatext panel.
-### Equipment
 ### Visualizations
 - Adjustable transparency for the ElvUI interface movers.
 - Attack icon on target frame when target is not tapped by you or your group, but you still get credit for the kill when attacking.
