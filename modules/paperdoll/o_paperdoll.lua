@@ -17,8 +17,8 @@ P["eel"]["paperdoll"] = {
 
 
 local function ConfigTable()
-    E.Options.args.eel.args.equipment = {
-        order = 40,
+    E.Options.args.eel.args.paperdoll = {
+        order = 50,
         type = 'group',
         name = L['Paperdoll'],
         childGroups = 'tab',
