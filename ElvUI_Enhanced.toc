@@ -2,6 +2,9 @@
 ## Title: |cff1784d1ElvUI|r Enhanced Again
 ## Author: Tevoll
 ## Version: 4.0.1
+=======
+## Version: 4.1-beta1
+>>>>>>> Stashed changes
 ## Notes: Plugin-Enhancements for |cff1784d1ElvUI|r.
 ## X-Category: Plugins
 ## URL: https://www.curseforge.com/wow/addons/elvui-enhanced-again
