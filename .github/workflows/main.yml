@@ -34,7 +34,7 @@ jobs:
       - name: Clone project
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0  # gets git history for changelogs
+          fetch-depth: 1  # gets git history for changelogs
 
       # once cloned, we just run the GitHub Action for the packager project
       - name: Package and release
