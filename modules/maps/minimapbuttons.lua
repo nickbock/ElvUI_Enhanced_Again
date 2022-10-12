@@ -49,6 +49,7 @@ local partialIgnores = {
 	"Note",
 	"Pin",
 	"POI",
+	"Questie",
 }
 
 -- whitelist all frames starting with
