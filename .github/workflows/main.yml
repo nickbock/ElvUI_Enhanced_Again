@@ -13,30 +13,27 @@ on:
 # a workflow is built up as jobs, and within these jobs are steps
 jobs:
 
-  # "release" is a job, you can name it anything you want
   release:
-
-    # we can run our steps on pretty much anything, but the "ubuntu-latest" image is a safe bet
     runs-on: ubuntu-latest
 
-    # specify the environment variables used by the packager, matching the secrets from the project on GitHub
     # env:
     #   CF_API_KEY: ${{ secrets.CF_API_KEY }}
     #   WOWI_API_TOKEN: ${{ secrets.WOWI_API_TOKEN }}
     #   WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
-    #   GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}  # "GITHUB_TOKEN" is a secret always provided to the workflow
-                                                 # for your own token, the name cannot start with "GITHUB_"
+    #   GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}  
 
-    # "steps" holds a list of all the steps needed to package and release our AddOn
     steps:
-
-      # we first have to clone the AddOn project, this is a required step
       - name: Clone project
         uses: actions/checkout@v2
         with:
-          fetch-depth: 1  # gets git history for changelogs
+          fetch-depth: 2  # gets git history for changelogs
 
-      # once cloned, we just run the GitHub Action for the packager project
+      # - name: Run Luacheck
+      #   uses: nebularg/actions-luacheck@v1
+      #   with:
+      #     args: "--no-color -q"
+      #     annotate: error
+
       - name: Package and release
         uses: BigWigsMods/packager@v2
         env:
@@ -46,10 +43,3 @@ jobs:
           WAGO_API_TOKEN: ${{ secrets.WAGO_API_TOKEN }}
         with:
           args: -w 0 -p 0
-
-      # another example where we supply additional arguments, this example is specifically to release
-      # for the Burning Crusade Classic version of the game and doesn't upload to WoWInterface
-      # - name: Package and release for Burning Crusade Classic
-      #  uses: BigWigsMods/packager@v2
-      #  with:
-      #    args: -g bcc -w 0

@@ -1,0 +1,31 @@
+# description of this workflow, can be anything you want
+name: Lua Check Commit
+
+# we need to let GitHub know _when_ we want to release, typically only when we create a new tag.
+# this will target only tags, and not all pushes to the master branch.
+# this part can be heavily customized to your liking, like targeting only tags that match a certain word,
+# other branches or even pullrequests.
+on:
+  push:
+
+# a workflow is built up as jobs, and within these jobs are steps
+jobs:
+
+  Lua_Check:
+    runs-on: ubuntu-latest
+
+    env:
+       GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}  
+        
+
+    steps:
+      - name: Clone project
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2  # gets git history for changelogs
+
+      - name: Run Luacheck
+        uses: nebularg/actions-luacheck@v1
+        with:
+          args: "--no-color -q"
+          annotate: error
