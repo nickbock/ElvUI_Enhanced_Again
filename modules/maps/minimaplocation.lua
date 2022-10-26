@@ -1,4 +1,4 @@
-local E, L, V, P, G = unpack(ElvUI); --Inport: Engine, Locales, PrivateDB, ProfileDB, GlobalDB, Localize Underscore
+local E, L, V, P, G = unpack(ElvUI); --Import: Engine, Locales, PrivateDB, ProfileDB, GlobalDB, Localize Underscore
 local EEL = E:GetModule('ElvuiEnhancedAgain')
 local M = E:GetModule('Minimap')
 local ML = E:NewModule('MinimapLocation', 'AceHook-3.0', 'AceEvent-3.0', 'AceTimer-3.0');
@@ -108,7 +108,8 @@ function ML:CreateFrame()
 		M:UnregisterEvent("PLAYER_REGEN_ENABLED")
 	end
 
-	local holder = _G['MMHolder']
+	--local holder = _G['MMHolder']
+	local holder = M.holder
 	panel:SetPoint('BOTTOMLEFT', holder, 'TOPLEFT', -(E.PixelMode and 3 or 4), -(E.PixelMode and 3 or 2))
 	panel:Size(holder:GetWidth() + (E.PixelMode and 5 or 7), 22) 
 	panel:Show()
