@@ -26,7 +26,8 @@ PT.tiers["LONG"] = {
 		"Castle Nathria",
 		"Sanctum of Domination",
 		"Sepulcher of the First Ones",
-		"Vault of the Incarnates"
+		"Vault of the Incarnates",
+		"Abberrus, the Shadowed Crucible"
 }
 PT.tiers["SHORT"] = {
 		"ULD",
@@ -37,7 +38,8 @@ PT.tiers["SHORT"] = {
 		"CN",
 		"SoD",
 		"SotFO",
-		"VotI"
+		"VotI",
+		"ASC"
 }
 
 PT.bosses = {
@@ -207,6 +209,23 @@ PT.bosses = {
 			},
 			{ -- LFR
 				16359, 16361, 16362 ,16366, 16367, 16368, 16369, 16370
+			},
+		},
+	},
+	{ -- Abberrus, the Shadowed Crucible
+		["option"] = "abberrus",
+		["statIDs"] = {
+			{ -- Mythic
+				18219, 18220, 18227, 18224, 18225, 18226, 18221, 18222, 18223
+			},
+			{ -- Heroic
+				18218, 18211, 18213, 18214, 18210, 18217, 18212, 18215, 18216
+			},
+			{ -- Normal
+				18189, 18198, 18191, 18197, 18194, 18195, 18192, 18190, 18196
+			},
+			{ -- LFR
+				18180, 18188, 18183, 18181, 18186, 18187, 18185, 18184, 18182
 			},
 		},
 	},	

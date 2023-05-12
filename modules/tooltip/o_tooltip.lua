@@ -14,7 +14,8 @@ P["eel"]["progression"] = {
         ["nathria"] = false,
         ["sanctum"] = false,
         ["sepul"] = false,
-        ["vault"] = true,
+        ["vault"] = false,
+        ["abberrus"] = true,
     },
 }
 
@@ -103,6 +104,7 @@ local function ConfigTable()
                         disabled = function() return not E.db.eel.progression.enable end,
                         args = {
                             vault = { order = -37, type = "toggle", name = "Vault of the Incarnates" },
+                            abberrus = { order = -36, type = "toggle", name = "Abberus, the Shadowed Crucible" },
                         }
                     }
                 },
