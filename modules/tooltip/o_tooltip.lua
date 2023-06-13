@@ -104,7 +104,7 @@ local function ConfigTable()
                         disabled = function() return not E.db.eel.progression.enable end,
                         args = {
                             vault = { order = -37, type = "toggle", name = "Vault of the Incarnates" },
-                            abberrus = { order = -36, type = "toggle", name = "Abberus, the Shadowed Crucible" },
+                            abberrus = { order = -36, type = "toggle", name = "Abberrus, the Shadowed Crucible" },
                         }
                     }
                 },
