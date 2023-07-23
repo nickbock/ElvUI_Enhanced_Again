@@ -6,7 +6,7 @@
 You need atleast ElvUI version 12 or higher for the add-on to work.
 
 # General Information
-This is a continuation of ElvUI Enhanced and a more liteweight version. Only essential features are added and features that ElvUI can do it self are removed. If you miss specific features from the old v3 version, please let me know and I will consider adding them.
+This is a continuation of ElvUI Enhanced and a more lighteweight version. Only essential features are added and features that ElvUI can do it self are removed. If you miss specific features from the old v3 version, please let me know and I will consider adding them.
 
 If you find any bugs or features that are not working please let me know by creating a ticket: [https://github.com/nickbock/ElvUI_Enhanced_Again/issues](https://github.com/nickbock/ElvUI_Enhanced_Again/issues "")
 
