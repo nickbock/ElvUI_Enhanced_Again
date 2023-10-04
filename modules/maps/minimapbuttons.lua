@@ -4,6 +4,7 @@ local MB = E:NewModule('MinimapButtons', 'AceHook-3.0', 'AceEvent-3.0', 'AceTime
 local LO = E:GetModule('Layout')
 local Skins = E:GetModule('Skins')
 local _G = _G
+local LibDBIcon = LibStub('LibDBIcon-1.0')
 
 -- Based on Square Minimap Buttons
 -- Original authors: Azilroka, Sinaris
@@ -93,6 +94,15 @@ function MB:SkinButton(frame)
 	
 	for i = 1, #whiteList do
 		if sub(name, 1, len(whiteList[i])) == whiteList[i] then validIcon = true break end
+	end
+
+	-- check if the button is a LibDBIcon and if it was hidden:
+	local libIconName = string.gsub(name,"LibDBIcon10_","")
+	if (not (libIconName == name)) and LibDBIcon then
+		local libBtn = LibDBIcon:GetMinimapButton(libIconName)
+		if libBtn.db and libBtn.db.hide then
+			return
+		end
 	end
 	
 	if not validIcon then
