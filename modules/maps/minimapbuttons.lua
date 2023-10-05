@@ -99,8 +99,10 @@ function MB:SkinButton(frame)
 	-- check if the button is a LibDBIcon and if it was hidden:
 	local libIconName = string.gsub(name,"LibDBIcon10_","")
 	if (not (libIconName == name)) and LibDBIcon then
+		print(libIconName)
 		local libBtn = LibDBIcon:GetMinimapButton(libIconName)
-		if libBtn.db and libBtn.db.hide then
+		print(libBtn)
+		if libBtn and libBtn.db and libBtn.db.hide then
 			return
 		end
 	end
