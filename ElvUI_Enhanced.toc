@@ -1,4 +1,4 @@
-## Interface: 100107
+## Interface: 100200
 ## Title: |cff1784d1ElvUI|r Enhanced Again
 ## Author: Tevoll
 ## Version: 4.2.4
