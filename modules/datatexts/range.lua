@@ -7,7 +7,7 @@
 
 local E, L, V, P, G = unpack(ElvUI); --Inport: Engine, Locales, PrivateDB, ProfileDB, GlobalDB, Localize Underscore
 local DT = E:GetModule('DataTexts')
-local RC = LibStub("LibRangeCheck-2.0")
+local RC = LibStub("LibRangeCheck-3.0")
 
 local displayString = ''
 local lastPanel
