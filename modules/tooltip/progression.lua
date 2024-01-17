@@ -27,7 +27,8 @@ PT.tiers["LONG"] = {
 		"Sanctum of Domination",
 		"Sepulcher of the First Ones",
 		"Vault of the Incarnates",
-		"Abberrus, the Shadowed Crucible"
+		"Abberrus, the Shadowed Crucible",
+		"Amirdrassil, the Dream's Hope",
 }
 PT.tiers["SHORT"] = {
 		"ULD",
@@ -39,7 +40,8 @@ PT.tiers["SHORT"] = {
 		"SoD",
 		"SotFO",
 		"VotI",
-		"ASC"
+		"ASC",
+		"ADH",
 }
 
 PT.bosses = {
@@ -228,7 +230,24 @@ PT.bosses = {
 				18180, 18188, 18183, 18181, 18186, 18187, 18185, 18184, 18182
 			},
 		},
-	},	
+	},
+	{ -- Amirdrassil, the Dream's Hope
+		["option"] = "amirdrassil",
+		["statIDs"] = {
+			{ -- Mythic
+				19378, 19379, 19380, 19381, 19382, 19383, 19384, 19385, 19386
+			},
+			{ -- Heroic
+				19369, 19370, 19371, 19372, 19373, 19374, 19375, 19376, 19377
+			},
+			{ -- Normal
+				19360, 19361, 19362, 19363, 19364, 19365, 19366, 19367, 19368
+			},
+			{ -- LFR
+				19348, 19352, 19353, 19354, 19355, 19356, 19357, 19358, 19359
+			},
+		},
+	},
 }
 
 PT.progressCache = {}

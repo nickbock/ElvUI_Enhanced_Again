@@ -15,7 +15,8 @@ P["eel"]["progression"] = {
         ["sanctum"] = false,
         ["sepul"] = false,
         ["vault"] = false,
-        ["abberrus"] = true,
+        ["abberrus"] = false,
+        ["amirdrassil"] = true,
     },
 }
 
@@ -105,6 +106,7 @@ local function ConfigTable()
                         args = {
                             vault = { order = -37, type = "toggle", name = "Vault of the Incarnates" },
                             abberrus = { order = -36, type = "toggle", name = "Abberrus, the Shadowed Crucible" },
+                            amirdrassil = { order = -35, type = "toggle", name = "Amirdrassil, the Dream's Hope" },
                         }
                     }
                 },
